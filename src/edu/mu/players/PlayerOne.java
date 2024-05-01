@@ -33,4 +33,11 @@ public class PlayerOne extends Player { //This is the character that you will pl
 		hand.add(card);
 	}
 
+
+	@Override
+	public ArrayList<Card> initHand() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

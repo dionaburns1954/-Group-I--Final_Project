@@ -34,4 +34,11 @@ public class PlayerTwo extends Player{
 		hand.add(card);
 	}
 
+
+	@Override
+	public ArrayList<Card> initHand() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

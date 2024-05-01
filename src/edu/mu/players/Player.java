@@ -14,4 +14,6 @@ public abstract class Player {
 	
 	public abstract void addCardToHand(Card card);
 	
+	public abstract ArrayList<Card> initHand();
+	
 }
