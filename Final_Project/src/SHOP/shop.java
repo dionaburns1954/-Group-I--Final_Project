@@ -15,7 +15,7 @@ public class shop {
 		currency = 0;
 		Initialize_All_Items();
 		Select_Displayed_Items();
-}
+}//test
 	
 	private void Initialize_All_Items() {
 		// ADD ANY ITEMS HERE ADD TO ALL ITEMS ARRAY 
