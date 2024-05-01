@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import edu.mu.item.DeleteCardItem;
+import edu.mu.item.Item;
+import edu.mu.item.SingleCard;
+
 public class shop {
 	/*DELETE THIS LINE TO UNCOMMENT
 	 * 
@@ -51,4 +55,22 @@ public class shop {
 	 * } public void Add_Currency(int amount) { currency += amount; }
 	 * 
 	 *///DELETE THIS LINE TO UNCOMMENT
+	private List<Item> displayedItems;
+	
+	public shop() {
+		displayedItems = new ArrayList<>();
+		initializeDisplayedItems();
+	}
+	
+	private void initializeDisplayedItems() {
+		displayedItems.add(new SingleCard("Card A", 5, new int[] {1, 2, 3, 4, 5}));
+		displayedItems.add(new DeleteCardItem("Delete Card", 10, null));
+	}
+	
+	public void refreshShop() {
+		displayedItems.clear();
+		initializeDisplayedItems();
+	}
+	
+	
 }
