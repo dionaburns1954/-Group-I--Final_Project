@@ -1,3 +1,4 @@
+package edu.mu.card;
 
 public class Card {
 	

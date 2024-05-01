@@ -1,4 +1,7 @@
+
+package edu.mu.deck;
 import java.util.ArrayList;
+import edu.mu.card.Card;
 
 public class Deck {
 	
@@ -19,7 +22,7 @@ public class Deck {
 		return false;
 	}
 	
-	private boolean deleteCardFromDeck(Card Card) {
+	private boolean deleteCardFromDeck(Card card) {
 		//removes a certain card from the deck
 		//card that is to be removed are ones that have been pulled
 		//method returns true if card was successfully removed from deck, else returns false
