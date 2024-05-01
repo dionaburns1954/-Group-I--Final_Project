@@ -11,6 +11,12 @@ public class Deck {
 		this.deck = new ArrayList<Card>();
 	}
 	
+	private ArrayList<Card> cards;
+	
+	public void deleteCard(Card card) {
+		cards.remove(card);
+		System.out.println("Card deleted from deck.");
+	}
 	public boolean pullCardsFromDeck(int num) {
 		/*
 		 * function takes in a num of cards representing
