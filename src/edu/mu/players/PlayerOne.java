@@ -9,7 +9,7 @@ public class PlayerOne extends Player { //This is the character that you will pl
 	ArrayList<Card> hand;
 	
 	public PlayerOne() {
-		hand = new ArrayList<Card>();
+		hand = initHand();
 	}
 	
 

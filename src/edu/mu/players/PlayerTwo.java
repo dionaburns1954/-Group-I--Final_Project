@@ -9,7 +9,7 @@ public class PlayerTwo extends Player{
 	ArrayList<Card> hand;
 	
 	public PlayerTwo() {
-		hand = new ArrayList<Card>();
+		hand = initHand();
 	}
 	
 	
