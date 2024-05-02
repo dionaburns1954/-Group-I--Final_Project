@@ -102,6 +102,7 @@ public class shop {
 				}
 			}
 		}
+		scanner.close();
 	}
 	
 	private void Display_Items () {
