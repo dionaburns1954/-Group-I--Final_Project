@@ -30,32 +30,33 @@ public class shop {
 	private void Initialize_All_Items() { // ADD ANY ITEMS HERE ADD TO ALL ITEMS
 		displayedItems.add(new SingleCard("Card A", 5, new int[] {1, 2, 3, 4, 5}));
 		displayedItems.add(new DeleteCardItem("Delete Card", 10, null));
+	//displayedItems.add(new ResetShop("re roll items ", 10, null));
 	
 	}
 	private void Select_Displayed_Items() {
 		displayedItems.clear();
 	  
 	  displayedItems.add(Get_Random_Single_Card());
-	  displayedItems.add(/*new DeleteCardItem( what ever delete card */);
-	  displayedItems.add(/* new ShuffleShopItem( what ever shuffle shop*/);
-	  displayedItems.add(Get_Random_BoosterPack());
+	  displayedItems.add(new DeleteCardItem("Delete Card", 10, null));
+	 // displayedItems.add(new ResetShop("re Roll items", 10, null)); 
+	 // displayedItems.add(Get_Random_BoosterPack());
 	  for ( int i = 0; i < 3; i ++) {// for how ever other items we would want to add
 		  displayedItems.add(Get_Random_Item());
 		  } 
 	  }
 	
-	private Item Get_Random_BoosterPack() {
-		Random random = new Random();
-		int chance =random.nextInt(10);// generate random number between 0 and 9 
-		if ( chance < /*some value */){ 
-			return new boosterpack ( BRONZE); // repeat for other boosterpack values make it where it is guaranteed 1 like if everything fails then hit this type thing 
-		} 
-	} 
+	//private Item Get_Random_BoosterPack() {
+		//Random random = new Random();
+		//int chance =random.nextInt(10);// generate random number between 0 and 9 
+		//if ( chance < /*some value */){ 
+		//	return new boosterpack ( BRONZE); // repeat for other boosterpack values make it where it is guaranteed 1 like if everything fails then hit this type thing 
+	//	} 
+	//} 
 	
 	private Item Get_Random_Single_Card() { 
 		Random random = new Random();
 		int value = random.nextInt(10)+1; // generate random value between 1 and 10 
-	  return new SingleCard( /* whatever it is assign Value here */ );
+	  return new SingleCard("Card A", 5, new int[] {1, 2, 3, 4, 5} );
 	   }
 	
 	private Item Get_Random_Item() {
@@ -129,10 +130,8 @@ public class shop {
 		}
 	  
 	
-	
 	public void refreshShop() {
 		Select_Displayed_Items();
 	}
-	
 	
 }
