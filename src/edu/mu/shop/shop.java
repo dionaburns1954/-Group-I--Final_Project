@@ -29,9 +29,12 @@ public class shop {
 		displayedItems.clear();
 	  
 	  displayedItems.add(Get_Random_Single_Card());
+	  displayedItems.add(Get_Random_Single_Card());
+	  displayedItems.add(Get_Random_BoosterPack());
+	  displayedItems.add(Get_Random_BoosterPack());
 	  displayedItems.add(new DeleteCardItem("Delete Card", 10, null));
 	 // displayedItems.add(new ResetShop("re Roll items", 10, null)); 
-	  displayedItems.add(Get_Random_BoosterPack());
+	  
 	  
 	  }
 	
@@ -51,7 +54,7 @@ public class shop {
 	private Item Get_Random_Single_Card() { 
 		Random random = new Random();
 		int value = random.nextInt(10)+1; // generate random value between 1 and 10 
-	  return new SingleCard("Card A", 5, new int[] {value}) ;
+	  return new SingleCard("Card " + value, 5, new int[] {value}) ;
 	   }
 	
 
@@ -79,14 +82,14 @@ public class shop {
 							validInput = true;
 						} else {
 							try {
-								int itemNumber = Integer.parseInt(input);
+								int itemNumber = Integer.parseInt(input)-1;
 								if ( itemNumber >= 0 && itemNumber < displayedItems.size()) {
 									Item selectedItem = displayedItems.get(itemNumber);
 									if ( currency >= selectedItem.getPrice()) {
 										Purchase_Item(selectedItem);
 										
 										
-										validInput = true;
+										
 									}else {
 										System.out.println("Insufficient funds!");
 									}
