@@ -11,9 +11,6 @@ import edu.mu.item.SingleCard;
 
 public class shop {
 
-
-	  
-	private List<Item> allItems; 
 	private List<Item> displayedItems; 
 	private int currency;
 	  
