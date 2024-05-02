@@ -20,50 +20,44 @@ public class shop {
 	  
 	  
 	public shop() { 
-		allItems= new ArrayList<>(); 
+		
 		displayedItems = new ArrayList<>();
 		currency = 0;
-		Initialize_All_Items();
+
 	    Select_Displayed_Items();
 	    }//test
 	  
-	private void Initialize_All_Items() { // ADD ANY ITEMS HERE ADD TO ALL ITEMS
-		displayedItems.add(new SingleCard("Card A", 5, new int[] {1, 2, 3, 4, 5}));
-		displayedItems.add(new DeleteCardItem("Delete Card", 10, null));
-	//displayedItems.add(new ResetShop("re roll items ", 10, null));
 	
-	}
 	private void Select_Displayed_Items() {
 		displayedItems.clear();
 	  
 	  displayedItems.add(Get_Random_Single_Card());
 	  displayedItems.add(new DeleteCardItem("Delete Card", 10, null));
 	 // displayedItems.add(new ResetShop("re Roll items", 10, null)); 
-	 // displayedItems.add(Get_Random_BoosterPack());
-	  for ( int i = 0; i < 3; i ++) {// for how ever other items we would want to add
-		  displayedItems.add(Get_Random_Item());
-		  } 
+	  displayedItems.add(Get_Random_BoosterPack());
+	  
 	  }
 	
-	//private Item Get_Random_BoosterPack() {
-		//Random random = new Random();
-		//int chance =random.nextInt(10);// generate random number between 0 and 9 
-		//if ( chance < /*some value */){ 
-		//	return new boosterpack ( BRONZE); // repeat for other boosterpack values make it where it is guaranteed 1 like if everything fails then hit this type thing 
-	//	} 
-	//} 
+	private Item Get_Random_BoosterPack() {
+		Random random = new Random();
+		int chance =random.nextInt(10);// generate random number between 0 and 9 
+		if ( chance <= 5){ 
+			return new SingleCard("Bronze booster", 10, new int[] {2,3,4,5,7});
+			}else if ( chance >5 && chance < 9) {
+				return new SingleCard("Silverr booster", 15, new int[] {4,4,6,6,8});
+			} else { 
+				return new SingleCard("Gold booster", 20, new int[] {7,7,8,9,10});
+			}
+		} 
+
 	
 	private Item Get_Random_Single_Card() { 
 		Random random = new Random();
 		int value = random.nextInt(10)+1; // generate random value between 1 and 10 
-	  return new SingleCard("Card A", 5, new int[] {1, 2, 3, 4, 5} );
+	  return new SingleCard("Card A", 5, new int[] {value}) ;
 	   }
 	
-	private Item Get_Random_Item() {
-		Random random = new Random();
-	  return allItems.get(random.nextInt(allItems.size()));
-	  
-	  } 
+
 	
 	public void Open_Shop_Menu() {
 		Scanner scanner = new Scanner(System.in);
