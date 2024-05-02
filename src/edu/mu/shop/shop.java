@@ -5,7 +5,12 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import edu.mu.item.DeleteCardItem;
+import edu.mu.item.Item;
+import edu.mu.item.SingleCard;
+
 public class shop {
+
 
 	  
 	private List<Item> allItems; 
@@ -23,6 +28,8 @@ public class shop {
 	    }//test
 	  
 	private void Initialize_All_Items() { // ADD ANY ITEMS HERE ADD TO ALL ITEMS
+		displayedItems.add(new SingleCard("Card A", 5, new int[] {1, 2, 3, 4, 5}));
+		displayedItems.add(new DeleteCardItem("Delete Card", 10, null));
 	
 	}
 	private void Select_Displayed_Items() {
@@ -84,7 +91,7 @@ public class shop {
 								if ( itemNumber >= 0 && itemNumber < displayedItems.size()) {
 									Item selectedItem = displayedItems.get(itemNumber);
 									if ( currency >= selectedItem.getPrice()) {
-										purchaseItem(selectedItem);
+										Purchase_Item(selectedItem);
 										
 										
 										validInput = true;
@@ -121,5 +128,11 @@ public class shop {
 		currency += amount;
 		}
 	  
-	 
+	
+	
+	public void refreshShop() {
+		Select_Displayed_Items();
+	}
+	
+	
 }

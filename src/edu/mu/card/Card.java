@@ -1,6 +1,6 @@
 package edu.mu.card;
 
-public class Card {
+public class Card { //might turn into an abstract class or interface later
 	
 	private int value;
 	
