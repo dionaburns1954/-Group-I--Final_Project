@@ -54,7 +54,7 @@ public class shop {
 	private Item Get_Random_Single_Card() { 
 		Random random = new Random();
 		int value = random.nextInt(10)+1; // generate random value between 1 and 10 
-	  return new SingleCard("Card " + value, 5, new int[] {value}) ;
+	  return new SingleCard("Card " + value, 3+value, new int[] {value}) ;
 	   }
 	
 
