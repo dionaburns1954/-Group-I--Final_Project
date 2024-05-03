@@ -43,4 +43,7 @@ public class Deck {
 		return false; 
 	}
 	
+	public ArrayList<Card> getCards() {
+		return this.cards;
+	}
 }
