@@ -5,14 +5,17 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import edu.mu.deck.Deck;
 import edu.mu.item.DeleteCardItem;
 import edu.mu.item.Item;
+import edu.mu.item.ResetShopItem;
 import edu.mu.item.SingleCard;
 
 public class shop {
 
 	private List<Item> displayedItems; 
 	private int currency;
+	private Deck playerDeck;
 	  
 	  
 	  
@@ -20,6 +23,7 @@ public class shop {
 		
 		displayedItems = new ArrayList<>();
 		currency = 0;
+		playerDeck = new Deck();
 
 	    Select_Displayed_Items();
 	    }//test
@@ -33,6 +37,7 @@ public class shop {
 	  displayedItems.add(Get_Random_BoosterPack());
 	  displayedItems.add(Get_Random_BoosterPack());
 	  displayedItems.add(new DeleteCardItem("Delete Card", 10, null));
+	  displayedItems.add(new ResetShopItem("Reset Shop", 10, this));
 	 // displayedItems.add(new ResetShop("re Roll items", 10, null)); 
 	  
 	  
