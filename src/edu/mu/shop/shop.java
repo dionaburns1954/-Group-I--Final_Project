@@ -37,8 +37,7 @@ public class shop {
 	  displayedItems.add(Get_Random_BoosterPack());
 	  displayedItems.add(Get_Random_BoosterPack());
 	  displayedItems.add(new DeleteCardItem("Delete Card", 10, null));
-	  displayedItems.add(new ResetShopItem("Reset Shop", 10, this));
-	 // displayedItems.add(new ResetShop("re Roll items", 10, null)); 
+	  displayedItems.add(new ResetShopItem("Reset Shop", 3, this));
 	  
 	  
 	  }
@@ -47,19 +46,30 @@ public class shop {
 		Random random = new Random();
 		int chance =random.nextInt(10);// generate random number between 0 and 9 
 		if ( chance <= 5){ 
-			return new SingleCard("Bronze booster", 10, new int[] {2,3,4,5,7});
+			return new SingleCard("Bronze booster", 4, new int[] {2,2,3,3,4,4,5,7});
 			}else if ( chance >5 && chance < 9) {
-				return new SingleCard("Silverr booster", 15, new int[] {4,4,6,6,8});
+				return new SingleCard("Silver booster", 6, new int[] {3,4,4,5,6,6,7,8});
 			} else { 
-				return new SingleCard("Gold booster", 20, new int[] {7,7,8,9,10});
+				return new SingleCard("Gold booster", 8, new int[] {6,7,7,7,8,8,9,10});
 			}
 		} 
 
-	
+	private int Get_Single_Card_Value() {
+		Random random = new Random ();
+		int ra = random.nextInt(100);
+		
+		if (ra < 70) {
+			return random.nextInt(5)+1;
+		}else if (ra < 90) {
+			return random.nextInt(4)+6;
+		}else {
+			return random.nextInt(4)+10;
+		}
+	}
 	private Item Get_Random_Single_Card() { 
-		Random random = new Random();
-		int value = random.nextInt(10)+1; // generate random value between 1 and 10 
-	  return new SingleCard("Card " + value, 3+value, new int[] {value}) ;
+		
+		int value = Get_Single_Card_Value(); // generate random value between 1 and 10 
+	  return new SingleCard("Card " + value, value, new int[] {value}) ;
 	   }
 	
 
