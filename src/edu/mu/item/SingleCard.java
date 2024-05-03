@@ -15,11 +15,15 @@ public class SingleCard extends Item {
     @Override
     public void applyEffect() {
     	if (currentValue == 0) { // Check if card value is not assigned
-            Random random = new Random();
-            int index = random.nextInt(possibleValues.length);
-            currentValue = possibleValues[index]; // Assign random value from possible values
+            currentValue = getRandomValueFromPossibleValues();
         }
         // Here you can add logic for adding the card to the player's deck
+    }
+    
+    private int getRandomValueFromPossibleValues() {
+    	Random random = new Random();
+    	int index = random.nextInt(possibleValues.length);
+    	return possibleValues[index];
     }
 
     public int getCurrentValue() {
