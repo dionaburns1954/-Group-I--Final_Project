@@ -28,6 +28,15 @@ public class Deck {
 		return deck;
  	}
 	
+	public boolean deleteCard(Card card) {
+		deck.remove(card);
+		for(int i = 0; i < deck.size(); i++) {
+			if(deck.get(i) == card)
+				return false;
+		}
+		return true;
+	}
+	
 	//private ArrayList<Card> cards;
 	
 	/*
@@ -70,7 +79,6 @@ public class Deck {
 		
 		return false; 
 	}
-	/*
-	 * public ArrayList<Card> getCards() { return this.cards; }
-	 */
+	
+	public ArrayList<Card> getCards() { return this.deck; }
 }
