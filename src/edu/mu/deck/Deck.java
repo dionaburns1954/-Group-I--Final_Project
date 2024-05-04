@@ -17,15 +17,21 @@ public class Deck {
 		cards.remove(card);
 		System.out.println("Card deleted from deck.");
 	}
-	public boolean pullCardsFromDeck(int num) {
+	public  ArrayList<Card> pullCardsFromDeck(int num) {
 		/*
 		 * function takes in a num of cards representing
 		 * how many cards to pull from top of deck.
 		 * Method pulls num of cards from top of deck and deletes them
 		 * from arraylist. Method returns truee if successful, false if unsuccessful
 		 */
+		ArrayList<Card> returnCards = new ArrayList<Card>(); 
+		int deckIndex = 0;
+		for(int i = 0; i < num; i++) {
+			returnCards.add(deck.get(deckIndex)); //pops first card off deck and adds it to returnDeck
+			deleteCardFromDeck(deck.get(deckIndex)); //removes popped card from deck
+		}
 		
-		return false;
+		return returnCards;
 	}
 	
 	private boolean deleteCardFromDeck(Card card) {
