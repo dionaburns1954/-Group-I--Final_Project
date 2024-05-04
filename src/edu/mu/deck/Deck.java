@@ -38,8 +38,13 @@ public class Deck {
 		//removes a certain card from the deck
 		//card that is to be removed are ones that have been pulled
 		//method returns true if card was successfully removed from deck, else returns false
+		deck.remove(card);
+		for(int i = 0; i < deck.size(); i++) {
+			if(deck.get(i) == card)
+					return false;
+		}
 		
-		return false;
+		return true;
 	}
 	
 	public boolean shuffleDeck() {
