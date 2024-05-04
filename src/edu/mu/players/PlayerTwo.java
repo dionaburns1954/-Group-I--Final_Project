@@ -58,5 +58,13 @@ public class PlayerTwo extends Player{
 		health = health - num;
 		
 	}
+	
+	public void setHand(ArrayList<Card> cards) {
+		hand = cards;
+	}
+	
+	public ArrayList<Card> getHand() {
+		return hand;
+	}
 
 }

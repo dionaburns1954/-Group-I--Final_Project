@@ -60,5 +60,13 @@ public class PlayerOne extends Player { //This is the character that you will pl
 		health = health - num;
 		
 	}
+	
+	public void setHand(ArrayList<Card> cards) {
+		hand = cards;
+	}
+	
+	public ArrayList<Card> getHand() {
+		return hand;
+	}
 
 }
