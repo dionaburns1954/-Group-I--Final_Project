@@ -16,4 +16,6 @@ public abstract class Player {
 	
 	public abstract ArrayList<Card> initHand();
 	
+	public abstract boolean checkPlayerHealth();
+	
 }

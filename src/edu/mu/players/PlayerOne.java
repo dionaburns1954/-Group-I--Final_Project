@@ -6,11 +6,14 @@ import edu.mu.card.Card;
 
 public class PlayerOne extends Player { //This is the character that you will play as
 	
-	ArrayList<Card> hand;
+	private ArrayList<Card> hand;
+	private int health;
 	
 	public PlayerOne() {
 		hand = initHand();
+		health = 100;
 	}
+
 	
 
 	@Override
@@ -38,6 +41,15 @@ public class PlayerOne extends Player { //This is the character that you will pl
 	public ArrayList<Card> initHand() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+	@Override
+	public boolean checkPlayerHealth() { //method for checking if player has died
+		if(health <= 0) return false;
+		
+		return true;
 	}
 
 }

@@ -6,10 +6,12 @@ import edu.mu.card.Card;
 
 public class PlayerTwo extends Player{
 
-	ArrayList<Card> hand;
+	private ArrayList<Card> hand;
+	private int health;
 	
 	public PlayerTwo() {
 		hand = initHand();
+		health = 100;
 	}
 	
 	
@@ -39,6 +41,14 @@ public class PlayerTwo extends Player{
 	public ArrayList<Card> initHand() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	@Override
+	public boolean checkPlayerHealth() {
+		if(health <= 0) return false;
+		
+		return true;
 	}
 
 }
