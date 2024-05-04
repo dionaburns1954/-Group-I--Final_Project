@@ -1,6 +1,8 @@
 
 package edu.mu.deck;
 import java.util.ArrayList;
+import java.util.Random;
+
 import edu.mu.card.Card;
 
 public class Deck {
@@ -8,15 +10,30 @@ public class Deck {
 	ArrayList<Card> deck;
 	
 	public Deck() {
-		this.deck = new ArrayList<Card>();
+		this.deck = initDeck();
 	}
 	
-	private ArrayList<Card> cards;
+	private ArrayList<Card> initDeck() {
+		ArrayList<Card> deck = new ArrayList<Card>();
+		final int deckSize = 100;
+		for(int i = 0; i < deckSize; i++) {
+			Random rand = new Random();
+			Card card = new Card(rand.nextInt(99) + 1);
+			deck.add(card);
+		}
+		
+		if(deck.size() == 0)
+			return null;
+		
+		return deck;
+ 	}
 	
-	public void deleteCard(Card card) {
-		cards.remove(card);
-		System.out.println("Card deleted from deck.");
-	}
+	//private ArrayList<Card> cards;
+	
+	/*
+	 * public void deleteCard(Card card) { cards.remove(card);
+	 * System.out.println("Card deleted from deck."); }
+	 */
 	public  ArrayList<Card> pullCardsFromDeck(int num) {
 		/*
 		 * function takes in a num of cards representing
@@ -53,8 +70,7 @@ public class Deck {
 		
 		return false; 
 	}
-	
-	public ArrayList<Card> getCards() {
-		return this.cards;
-	}
+	/*
+	 * public ArrayList<Card> getCards() { return this.cards; }
+	 */
 }
