@@ -73,12 +73,6 @@ public class Deck {
 		return true;
 	}
 	
-	public boolean shuffleDeck() {
-		//shuffles deck of cards before playing
-		//if deck is shuffled correctly, return true, else return false
-		
-		return false; 
-	}
 	
 	public ArrayList<Card> getCards() { return this.deck; }
 }
