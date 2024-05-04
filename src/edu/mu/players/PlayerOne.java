@@ -52,4 +52,13 @@ public class PlayerOne extends Player { //This is the character that you will pl
 		return true;
 	}
 
+
+
+	@Override
+	public void damagePlayer(int num) {
+		// TODO Auto-generated method stub
+		health = health - num;
+		
+	}
+
 }

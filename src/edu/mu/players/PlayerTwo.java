@@ -51,4 +51,12 @@ public class PlayerTwo extends Player{
 		return true;
 	}
 
+
+	@Override
+	public void damagePlayer(int num) {
+		// TODO Auto-generated method stub
+		health = health - num;
+		
+	}
+
 }

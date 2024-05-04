@@ -18,4 +18,6 @@ public abstract class Player {
 	
 	public abstract boolean checkPlayerHealth();
 	
+	public abstract void damagePlayer(int num);
+	
 }
