@@ -13,7 +13,7 @@ public class Deck {
 		this.deck = initDeck();
 	}
 	
-	private ArrayList<Card> initDeck() {
+	protected ArrayList<Card> initDeck() {
 		ArrayList<Card> deck = new ArrayList<Card>();
 		final int deckSize = 100;
 		for(int i = 0; i < deckSize; i++) {

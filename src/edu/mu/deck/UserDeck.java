@@ -23,6 +23,6 @@ public class UserDeck extends Deck {
 	
 	private void resetDeck() { // Initializes deck as well as reset deck to begining deck 
 		deck.clear();
-		//deck = initDeck(); figure out what to do with this
+		deck = initDeck();
 	}
 }

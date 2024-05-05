@@ -1,6 +1,9 @@
 package edu.mu.gamemanager;
 
+import java.util.Scanner;
+
 import edu.mu.deck.Deck;
+import edu.mu.players.Player;
 import edu.mu.players.PlayerOne;
 import edu.mu.players.PlayerTwo;
 
@@ -40,5 +43,17 @@ public class GameManager {
 		
 		return false;
 	}
-
+	
+	private void displayPlayerHand(PlayerOne player) {
+		for(int i = 0; i < player.getHand().size(); i++) {
+			System.out.print("Card " + (i + 1) + ": " + player.getHand().get(i).getValue());
+			System.out.println();
+		}
+	}
+	
+	
+	public void start() {
+		giveHand();
+		displayPlayerHand(player); //need to format this correctly
+	}
 }

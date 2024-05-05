@@ -42,7 +42,7 @@ public class PlayerOne extends Player { //This is the character that you will pl
 
 
 	@Override
-	public ArrayList<Card> initHand() {
+	public ArrayList<Card> initHand() { //need to get rid of this because hand is being init in gameManager class
 		// TODO Auto-generated method stub
 		//take from deck and pull some amount of cards
 		return null;
@@ -61,7 +61,6 @@ public class PlayerOne extends Player { //This is the character that you will pl
 
 	@Override
 	public void damagePlayer(int num) {
-		// TODO Auto-generated method stub
 		health = health - num;
 		
 	}
