@@ -13,7 +13,7 @@ public class Card { //might turn into an abstract class or interface later
 		this.value = value;
 	}
 	
-	private void setValue(int value) {
+	public void setValue(int value) {
 		this.value = value;
 	}
 	
