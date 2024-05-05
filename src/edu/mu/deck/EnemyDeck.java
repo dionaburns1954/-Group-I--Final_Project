@@ -14,7 +14,7 @@ public class EnemyDeck extends Deck {
 	initializeDeck(level);
 	}
 	
-	private void initializeDeck(int level) {
+	protected void initializeDeck(int level) {
 		if ( level == 1) {
 			Deck_1();
 			

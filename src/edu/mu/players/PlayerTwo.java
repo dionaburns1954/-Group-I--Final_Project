@@ -18,6 +18,10 @@ public class PlayerTwo extends Player{
 		deck = new EnemyDeck(level);
 	}
 	
+	public void refreshDeck(int lvl) { //for if you want to change difficulty
+		deck.getCards().clear();
+		deck = new EnemyDeck(lvl);
+	}
 	
 	@Override
 	public void playCard(Card card) {
