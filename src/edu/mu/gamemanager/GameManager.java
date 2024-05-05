@@ -55,5 +55,22 @@ public class GameManager {
 	public void start() {
 		giveHand();
 		displayPlayerHand(player); //need to format this correctly
-	}
+		//initilize users starting deck 
+		// intiilize users starting money 
+		// if we want health to not reset inbetween battles then initilize it here BUT if we want it to reset then initilize it at beginning of loop 
+		// LOOP create loop for game sequence 
+		// initillize  the users  health, and level 
+		// from level initilize enemy deck 
+		// start battle 
+				// iniside battle 
+				// shuffle both decks 
+				// IF we are doing playable hand then have player draw cards that they can choose to use IF we are doing a war style then draw top card off the deck 
+				// take the two chosen cards and compare who ever card value is the highest wins
+				// loser loses a life and we repeat battle until someone has all of their life points out. 
+				// once winner  add level and add currency 
+		// if win open shop 
+		// once the user exits shop  then loop it back up to start of loop 
+		// ELSE break the loop you lose game over. 
+		
+	}	
 }

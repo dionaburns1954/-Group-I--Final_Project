@@ -144,7 +144,7 @@ public class shop {
 		Select_Displayed_Items();
 	}
 	
-	// getter?
+	// getter?+
 	
 	public int Get_Currency() {
 		return currency;
