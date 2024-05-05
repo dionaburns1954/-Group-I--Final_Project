@@ -15,7 +15,7 @@ public class Deck {
 	
 	protected ArrayList<Card> initDeck() {
 		ArrayList<Card> deck = new ArrayList<Card>();
-		final int deckSize = 100;
+		final int deckSize = 40;
 		for(int i = 0; i < deckSize; i++) {
 			Random rand = new Random();
 			Card card = new Card(rand.nextInt(99) + 1);
