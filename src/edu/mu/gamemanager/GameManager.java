@@ -6,6 +6,7 @@ import edu.mu.deck.Deck;
 import edu.mu.players.Player;
 import edu.mu.players.PlayerOne;
 import edu.mu.players.PlayerTwo;
+import edu.mu.shop.shop;
 
 public class GameManager {
 	
@@ -55,12 +56,48 @@ public class GameManager {
 	public void start() {
 		giveHand();
 		displayPlayerHand(player); //need to format this correctly
-		//initilize users starting deck 
-		// intiilize users starting money 
+		shop Shop = new shop();
+		PlayerOne user = new PlayerOne();
+		
+		user.INITDECK();// intialize starting deck ( depending on how many compares to win a battle Deck should start with very little cards that way it insentivises the user to add to the deck 
+		
+		user.Level(1);// set the users level to 1 
+		int userLevel = 1; // SET USER LEVEL LIKE THIS ???
+		
+		Shop.Add_Currency(10);// starting currency 
+		
 		// if we want health to not reset inbetween battles then initilize it here BUT if we want it to reset then initilize it at beginning of loop 
-		// LOOP create loop for game sequence 
-		// initillize  the users  health, and level 
-		// from level initilize enemy deck 
+	
+		while (true) { // GAME PLAY LOOP 
+			
+			System.out.println("level" + userLevel);// tell what level your on
+			
+			PlayerTwo enemy = new PlayerTwo(userLevel);// set up enemy deck for that level 
+			enemy.INITDECK(level); initilize enemy deck based on level 
+			
+			int userHealth = 5; // set the health for user 
+			
+			Battle battle = new Battle(user, enemy);// create battle instance that has two players 
+			
+			int result = battle.startBattle();// call battle method 
+			
+			// do we want to update level and user money inside battle function or out here
+			if ( result = win) {
+				userLevel++;
+				Shop.Add_Currency(50);
+				
+				Shop.Open_Shop_Menu();// if win open shop and let user buy things for deck 
+				
+				// idk if we need logic if exit shop go back to begining of loop or not 
+			} 
+			else if ( result == lose) {// if lose then break out of loop 
+				System.out.println("Game Over - You Lose!");
+				break;
+			}
+			
+		}
+		
+	
 		// start battle 
 				// iniside battle 
 				// shuffle both decks 
@@ -68,9 +105,8 @@ public class GameManager {
 				// take the two chosen cards and compare who ever card value is the highest wins
 				// loser loses a life and we repeat battle until someone has all of their life points out. 
 				// once winner  add level and add currency 
-		// if win open shop 
-		// once the user exits shop  then loop it back up to start of loop 
-		// ELSE break the loop you lose game over. 
+	
+		
 		
 	}	
 }
