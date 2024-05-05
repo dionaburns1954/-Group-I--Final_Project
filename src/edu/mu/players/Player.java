@@ -12,7 +12,7 @@ public abstract class Player {
 	
 	public abstract void removeCard(Card card); //might change later
 	
-	public abstract void addCardToHand(Card card);
+	public abstract void addCardToHand(ArrayList<Card> card);
 	
 	public abstract ArrayList<Card> initHand();
 	

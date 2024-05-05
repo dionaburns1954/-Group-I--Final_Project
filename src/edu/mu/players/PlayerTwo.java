@@ -35,9 +35,10 @@ public class PlayerTwo extends Player{
 	}
 
 	@Override
-	public void addCardToHand(Card card) {
+	public void addCardToHand(ArrayList<Card> card) {
 		// TODO Auto-generated method stub
-		hand.add(card);
+		Card cardToAdd = card.get(0);
+		hand.add(cardToAdd);
 	}
 
 
