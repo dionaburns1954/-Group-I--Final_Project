@@ -3,15 +3,19 @@ package edu.mu.players;
 import java.util.ArrayList;
 
 import edu.mu.card.Card;
+import edu.mu.deck.Deck;
+import edu.mu.deck.EnemyDeck;
 
 public class PlayerTwo extends Player{
 
 	private ArrayList<Card> hand;
+	private EnemyDeck deck;
 	private int health;
 	
-	public PlayerTwo() {
-		hand = initHand();
+	public PlayerTwo(int level) {
+		//hand = initHand();
 		health = 100;
+		deck = new EnemyDeck(level);
 	}
 	
 	
@@ -65,6 +69,10 @@ public class PlayerTwo extends Player{
 	
 	public ArrayList<Card> getHand() {
 		return hand;
+	}
+	
+	public Deck getDeck() {
+		return deck;
 	}
 
 }

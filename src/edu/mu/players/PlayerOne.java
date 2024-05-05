@@ -3,14 +3,18 @@ package edu.mu.players;
 import java.util.ArrayList;
 
 import edu.mu.card.Card;
+import edu.mu.deck.Deck;
+import edu.mu.deck.UserDeck;
 
 public class PlayerOne extends Player { //This is the character that you will play as
 	
 	private ArrayList<Card> hand;
+	private UserDeck deck;
 	private int health;
 	
 	public PlayerOne() {
-		hand = initHand();
+		deck = new UserDeck();
+		//hand = initHand();
 		health = 100;
 	}
 
@@ -40,6 +44,7 @@ public class PlayerOne extends Player { //This is the character that you will pl
 	@Override
 	public ArrayList<Card> initHand() {
 		// TODO Auto-generated method stub
+		//take from deck and pull some amount of cards
 		return null;
 	}
 
@@ -67,6 +72,10 @@ public class PlayerOne extends Player { //This is the character that you will pl
 	
 	public ArrayList<Card> getHand() {
 		return hand;
+	}
+	
+	public Deck getDeck() {
+		return deck;
 	}
 
 }

@@ -8,19 +8,20 @@ public class GameManager {
 	
 	private final PlayerOne player = new PlayerOne();
 	private PlayerTwo enemy;
-	private final Deck deck;
+	private int enemyLvl = 1; //can be changed
+	//private final Deck deck;
 	private final int handNum = 7;
 	
 	public GameManager() {
-		enemy = new PlayerTwo();
-		deck = new Deck();
+		enemy = new PlayerTwo(enemyLvl);
+		//deck = new Deck();
 	}
 	
-	public boolean giveHand() {
-		player.setHand(deck.pullCardsFromDeck(handNum));
+	public boolean giveHand() { //gives player and enemy a fresh hand. Supposed to be called at the beginning
+		player.setHand(player.getDeck().pullCardsFromDeck(handNum));
 		if(player.getHand().size() <= 0) return false;
 		
-		enemy.setHand(deck.pullCardsFromDeck(handNum));
+		enemy.setHand(player.getDeck().pullCardsFromDeck(handNum));
 		if(enemy.getHand().size() <= 0) return false;
 		
 		
