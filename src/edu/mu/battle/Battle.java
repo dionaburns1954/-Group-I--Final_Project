@@ -10,7 +10,13 @@ import edu.mu.players.PlayerTwo;
 
 public class Battle {
 	
-	
+	private PlayerOne playerDeck;
+	private PlayerTwo enemyDeck;
+	private ArrayList<Card> playerHand;
+	private ArrayList<Card> enemyHand;
+	private int playerHealth;
+	private int enemyHealth;
+	private final int DAMAGEAMOUNT = 33;
 	private PlayerOne player;
 	private PlayerTwo enemy;
 	
@@ -60,6 +66,9 @@ public class Battle {
 		System.out.println("\nPlayer's hand: " + player.getHand());
 		
 		System.out.print("choose a card to play");
+		int player_choice = scanner.nextInt();
+		Card playerCard = playerHand.get(player_choice);
+		playerHand.remove(playerCard);
 		int playerchoice = scanner.nextInt();
 		Card playerCard = player.getHand().get(playerchoice);
 		player.getHand().remove(playerCard);
@@ -77,10 +86,13 @@ public class Battle {
 		
 	}
 	
-	private void compareCards( Card playerCard, Card enemyCard) {
+	private void compareCards(Card playerCard, Card enemyCard) {
 		// if player card.getvalue is greater then take health away from enemy
 		// else if enemy card is greater than take health away from player 
 		// else it is a tie 
+		boolean playerCardLarger = (playerCard.getValue() >= enemyCard.getValue()) ? true : false;
+		if(playerCardLarger) enemyDeck.damagePlayer(DAMAGEAMOUNT);
+		else playerDeck.damagePlayer(DAMAGEAMOUNT);
 	}
 }
 

@@ -39,10 +39,11 @@ public class PlayerTwo extends Player{
 	}
 	
 	@Override
-	public void playCard(Card card) {
-		// TODO Auto-generated method stub
+	public Card playCard(Card card) {
 		System.out.println("Card has been played!");
+		Card playedCard = card;
 		removeCard(card);
+		return playedCard;
 		
 	}
 
