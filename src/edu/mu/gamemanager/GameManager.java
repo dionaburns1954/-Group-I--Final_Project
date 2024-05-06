@@ -100,8 +100,8 @@ public class GameManager {
 	 * Starts the game loop, managing battles, player health, levels, and interaction with the shop
 	 */
 	public void start() {
-		giveHand();
-		displayPlayerHand(player); //need to format this correctly
+		//giveHand();
+		//displayPlayerHand(player); //need to format this correctly
 		shop Shop = new shop();
 		//PlayerOne user = new PlayerOne();
 		

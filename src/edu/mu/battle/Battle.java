@@ -1,6 +1,7 @@
 package edu.mu.battle;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -49,16 +50,17 @@ public class Battle {
 	 */
 	public int startBattle() {
 		
-		while(player.checkPlayerHealth() != false && enemy.checkPlayerHealth() != false ) {
-			
+		
 			shuffleDecks();
-			drawCards(3);
+			drawCards(7);
 			
+			while(player.checkPlayerHealth() != false && enemy.checkPlayerHealth() != false ) {
 			playRound();
 			
 			System.out.println("\nEnd of round.");
-			
+			System.out.println("enemy health = " + enemy.checkPlayerHealth());
 		}
+			
 		if(player.checkPlayerHealth() == false) {
 			System.out.println("\nYou Lose ");
 			return 2; // print out lose message 
@@ -102,13 +104,14 @@ public class Battle {
 		
 		System.out.print("choose a card to play");
 		
+	try {
+		int playerchoice = scanner.nextInt()-1;
 		
-		Integer playerchoice = scanner.nextInt();
 		Card playerCard = player.getHand().get(playerchoice);
 		player.getHand().remove(playerCard);
 		
-		scanner.close();
-		Integer enemychoice = random.nextInt(enemy.getHand().size());
+		
+		int enemychoice = random.nextInt(enemy.getHand().size());
 		Card enemyCard = enemy.getHand().get(enemychoice);
 		enemy.getHand().remove(enemyCard);
 		
@@ -118,7 +121,12 @@ public class Battle {
 		
 		compareCards(playerCard, enemyCard);
 		
+	}catch (NoSuchElementException e) {
+		System.out.println("ERROR not valid input");
+	}finally{
+		scanner.nextLine();
 	}
+}
 	
 	/**
 	 * Compares the cards played by both players and applies damage accordingly
