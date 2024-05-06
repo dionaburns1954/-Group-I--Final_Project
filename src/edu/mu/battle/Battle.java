@@ -1,14 +1,18 @@
 package edu.mu.battle;
 
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
 
 import edu.mu.card.Card;
+import edu.mu.players.PlayerOne;
+import edu.mu.players.PlayerTwo;
 
 public class Battle {
 	
 	
 	private PlayerOne playerDeck;
-	private PlaArrayList<E>emyDeck;
+	private PlayerTwo enemyDeck;
 	private ArrayList<Card> playerHand;
 	private ArrayList<Card> enemyHand;
 	private int playerHealth;
@@ -62,8 +66,8 @@ public class Battle {
 		System.out.println("\nPlayer's hand: " + playerHand);
 		
 		System.out.print("choose a card to play");
-		int player choice = scanner.netInt();
-		card playerCard = playerHand.get(playerChoice);
+		int player_choice = scanner.nextInt();
+		Card playerCard = playerHand.get(player_choice);
 		playerHand.remove(playerCard);
 		
 		// dp enemy but make the choice random 
