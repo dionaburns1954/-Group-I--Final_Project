@@ -6,28 +6,44 @@ import edu.mu.card.Card;
 import edu.mu.deck.Deck;
 import edu.mu.deck.EnemyDeck;
 
+/**
+ * Represents Player Two in the game
+ * 
+ * @author Dion Burns
+ */
 public class PlayerTwo extends Player{
 
 	private ArrayList<Card> hand;
 	private EnemyDeck deck;
 	private int health;
 	
+	/**
+	 * Constructs a new PlayerTwo instance
+	 * 
+	 * @param level The level of the enemy
+	 */
 	public PlayerTwo(int level) {
 		//hand = initHand();
 		health = 100;
 		deck = new EnemyDeck(level);
 	}
 	
+	/**
+	 * Refreshes the deck of the player with a new level
+	 * 
+	 * @param lvl The new level
+	 */
 	public void refreshDeck(int lvl) { //for if you want to change difficulty
 		deck.getCards().clear();
 		deck = new EnemyDeck(lvl);
 	}
 	
 	@Override
-	public void playCard(Card card) {
-		// TODO Auto-generated method stub
+	public Card playCard(Card card) {
 		System.out.println("Card has been played!");
+		Card playedCard = card;
 		removeCard(card);
+		return playedCard;
 		
 	}
 
@@ -68,14 +84,29 @@ public class PlayerTwo extends Player{
 		
 	}
 	
+	/**
+	 * Sets the hand of the player
+	 * 
+	 * @param cards The cards to set as the hand
+	 */
 	public void setHand(ArrayList<Card> cards) {
 		hand = cards;
 	}
 	
+	/**
+	 * Gets the hand of the player
+	 * 
+	 * @return The hand of the player
+	 */
 	public ArrayList<Card> getHand() {
 		return hand;
 	}
 	
+	/**
+	 * Gets the deck of the player
+	 * 
+	 * @return The deck of the player
+	 */
 	public Deck getDeck() {
 		return deck;
 	}

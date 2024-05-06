@@ -11,24 +11,37 @@ import edu.mu.item.Item;
 import edu.mu.item.ResetShopItem;
 import edu.mu.item.SingleCard;
 
+/**
+ * Represents the in-game shop where players can buy items using currency
+ * Allows players to view available items, purchase items, and refresh the shop inventory
+ * 
+ * @author Logan Bird
+ * @author Ryan Esparza
+ * @author Dion Burns
+ */
 public class shop {
 
 	private List<Item> displayedItems; 
 	private int currency;
 	private Deck playerDeck;
+	//private Scanner scan;
 	  
 	  
-	  
-	public shop() { 
+	/**
+	 * Constructor for the Shop class
+	 */
+	public shop(Deck deck) { 
 		
 		displayedItems = new ArrayList<>();
 		currency = 0;
-		playerDeck = new Deck();
-
+		playerDeck = deck; //init to player's current deck to fix
+		//scan = new Scanner(System.in);
 	    Select_Displayed_Items();
 	    }//test
 	  
-	
+	/**
+	 * Selects items to be displayed in the shop
+	 */
 	private void Select_Displayed_Items() {
 		displayedItems.clear();
 	  
@@ -36,44 +49,62 @@ public class shop {
 	  displayedItems.add(Get_Random_Single_Card());
 	  displayedItems.add(Get_Random_BoosterPack());
 	  displayedItems.add(Get_Random_BoosterPack());
-	  displayedItems.add(new DeleteCardItem("Delete Card", 10, null));
-	  displayedItems.add(new ResetShopItem("Reset Shop", 3, this));
+	  displayedItems.add(new DeleteCardItem("Delete Card", 10, playerDeck)); //change last param to not null
+	  displayedItems.add(new ResetShopItem("Reset Shop", 6, this));
 	  
 	  
 	  }
 	
+	/**
+	 * Generates a random booster pack item
+	 * 
+	 * @return A random booster pack item
+	 */
 	private Item Get_Random_BoosterPack() {
 		Random random = new Random();
 		int chance =random.nextInt(10);// generate random number between 0 and 9 
 		if ( chance <= 5){ 
-			return new SingleCard("Bronze booster", 4, new int[] {2,2,3,3,4,4,5,7});
+			return new SingleCard("Bronze booster", 4, new int[] {22,23,35,37,46,48,59,73});
 			}else if ( chance >5 && chance < 9) {
-				return new SingleCard("Silver booster", 6, new int[] {3,4,4,5,6,6,7,8});
+				return new SingleCard("Silver booster", 10, new int[] {39,44,46,57,68,69,77,83});
 			} else { 
-				return new SingleCard("Gold booster", 8, new int[] {6,7,7,7,8,8,9,10});
+				return new SingleCard("Gold booster", 40, new int[] {63,79,78,77,88,82,99,100});
 			}
 		} 
 
+	/**
+	 * Generates a random value for a single card
+	 * 
+	 * @return A random value for a single card
+	 */
 	private int Get_Single_Card_Value() {
 		Random random = new Random ();
 		int ra = random.nextInt(100);
 		
 		if (ra < 70) {
-			return random.nextInt(5)+1;
+			return random.nextInt(20)+1;
 		}else if (ra < 90) {
-			return random.nextInt(4)+6;
+			return random.nextInt(20)+50;
 		}else {
-			return random.nextInt(4)+10;
+			return random.nextInt(20)+80;
 		}
 	}
+	
+	/**
+	 * Generates a random single card item
+	 * 
+	 * @return A random single card item
+	 */
 	private Item Get_Random_Single_Card() { 
 		
 		int value = Get_Single_Card_Value(); // generate random value between 1 and 10 
-	  return new SingleCard("Card " + value, value, new int[] {value}) ;
+	  return new SingleCard("Card " + value, value/2, new int[] {value}) ;
 	   }
 	
 
-	
+	/**
+	 * Opens the shop menu, allowing the player to interact with the shop
+	 */
 	public void Open_Shop_Menu() {
 		Scanner scanner = new Scanner(System.in);
 		boolean exitShop = false;
@@ -117,15 +148,24 @@ public class shop {
 				}
 			}
 		}
-		scanner.close();
+		
 	}
 	
+	/**
+	 * Displays items available in the shop
+	 */
 	private void Display_Items () {
 		for (int i =0; i< displayedItems.size(); i++) { 
 			Item item = displayedItems.get(i);
 			System.out.println((i+1)+". " +item.getName() + " - Price: $" + item.getPrice());
 			}
 	  }
+	
+	/**
+	 * Purchases an item from the shop
+	 * 
+	 * @param item The item to purchase
+	 */
 	private void Purchase_Item (Item item) { 
 		item.applyEffect();
 		currency -= item.getPrice();
@@ -135,21 +175,39 @@ public class shop {
 	  System.out.println("remaining Items in shop"); Display_Items();
 	  
 	  }
+	
+	/**
+	 * Adds currency to the player's funds
+	 * 
+	 * @param amount The amount of currency to add
+	 */
 	public void Add_Currency(int amount) { 
 		currency += amount;
 		}
 	  
-	
+	/**
+	 * Refreshes the shop by selecting new displayed items
+	 */
 	public void refreshShop() {
 		Select_Displayed_Items();
 	}
 	
 	// getter?+
 	
+	/**
+	 * Retrieves the current currency balance
+	 * 
+	 * @return The current currency balance
+	 */
 	public int Get_Currency() {
 		return currency;
 	}
 	
+	/**
+	 * Retrieves the list of displayed items in the shop
+	 * 
+	 * @return The list of displayed items
+	 */
 	public List<Item> Get_Displayed_Items() {
 		return displayedItems;
 		}
