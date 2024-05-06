@@ -83,24 +83,24 @@ public class GameManager {
 			
 			int userHealth = 5; // set the health for user 
 			
-			//int result = battle.startBattle();// call battle method 
-			//final int WIN = 1;
-			//final int LOSE = 0;
-			// do we want to update level and user money inside battle function or out here
-			//if (result == WIN) {
-				//userLevel++;
-				//Shop.Add_Currency(50);
+			int result = battle.startBattle();// call battle method 
+			final int WIN = 1;
+			final int LOSE = 0;
+			 do we want to update level and user money inside battle function or out here
+			if (result == WIN) {
+				userLevel++;
+				Shop.Add_Currency(50);
 				
-				//Shop.Open_Shop_Menu();// if win open shop and let user buy things for deck 
+				Shop.Open_Shop_Menu();// if win open shop and let user buy things for deck 
 				
-				// idk if we need logic if exit shop go back to begining of loop or not 
-			//} 
-			//else if ( result == LOSE) {// if lose then break out of loop 
-				//System.out.println("Game Over - You Lose!");
-				//break;
-			//}
+				//idk if we need logic if exit shop go back to begining of loop or not 
+			} 
+			else if ( result == LOSE) {// if lose then break out of loop 
+				System.out.println("Game Over - You Lose!");
+				break;
+			}
 			
-		//}
+		}
 		
 	
 		// start battle 
@@ -113,9 +113,8 @@ public class GameManager {
 	
 		
 		
-		}	
+	}	
 	
-	}
 	public static GameManager getInstance() {
 		if (instance == null) {
 			instance = new GameManager();
