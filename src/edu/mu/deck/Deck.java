@@ -88,6 +88,14 @@ public class Deck {
 			deleteCard(deck.get(deckIndex)); //removes popped card from deck
 		}
 		
+		//replace cards that were pulled with new ones
+		Random rand = new Random();
+		for(int i = 0; i < num; i++) {
+			int value = rand.nextInt(99) + 1;
+			Card card = new Card(value);
+			deck.add(card);
+		}
+		
 		return returnCards;
 	}
 	
