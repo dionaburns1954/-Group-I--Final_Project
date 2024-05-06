@@ -15,24 +15,12 @@ public class UserDeck extends Deck {
 	 */
 	public UserDeck() {
 		super();
-		//initialize_Deck();
-	
-
-	}
-	
-	/**
-	 * Initializes the user's deck with default cards
-	 */
-	private void initializeDeck() {
-		for(int i =1;i<=5; i++) {
-			deck.add(new Card(i));
-		}
 	}
 	
 	/**
 	 * Resets the deck by clearing it and initializing it again with default cards
 	 */
-	private void resetDeck() { // Initializes deck as well as reset deck to begining deck 
+	private void resetDeck() { // Initializes deck as well as reset deck to beginning deck 
 		deck.clear();
 		deck = initDeck();
 	}
