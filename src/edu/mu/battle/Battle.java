@@ -125,8 +125,8 @@ public class Battle {
 		enemy.getHand().remove(enemyCard);
 		
 		
-		System.out.println("Player plays : " + playerCard);
-		System.out.println("Enemy plays : "+ enemyCard);
+		System.out.println("Player plays card with value of: " + playerCard.getValue());
+		System.out.println("Enemy plays card with value of: "+ enemyCard.getValue());
 		
 		compareCards(playerCard, enemyCard);
 		
