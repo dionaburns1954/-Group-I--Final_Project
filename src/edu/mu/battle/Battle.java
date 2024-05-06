@@ -8,15 +8,31 @@ import edu.mu.card.Card;
 import edu.mu.players.PlayerOne;
 import edu.mu.players.PlayerTwo;
 
+/**
+ * Represents a battle between the two players
+ * Includes shuffling decks, drawing cards, playing rounds, and determining the winner
+ * 
+ * @author Logan Bird
+ * @author Dion Burns
+ */
 public class Battle {
 	
+
 
 	private final int DAMAGEAMOUNT = 33;
 	private PlayerOne player;
 	private PlayerTwo enemy;
+
+	
+
 	
 	
-	
+	/**
+	 * Constructor for the Battle class
+	 * 
+	 * @param Player The first player
+	 * @param enemy The second player
+	 */
 	public Battle(PlayerOne Player, PlayerTwo enemy) {
 		this.player = Player;
 		this.enemy = enemy;
@@ -26,6 +42,11 @@ public class Battle {
 		
 	}
 	
+	/**
+	 * Starts the battle between the two players
+	 * 
+	 * @return An integer indicating the result of the battle: 1 for player victory, 2 for enemy victory
+	 */
 	public int startBattle() {
 		
 		while(player.checkPlayerHealth() != false && enemy.checkPlayerHealth() != false ) {
@@ -45,15 +66,27 @@ public class Battle {
 		}
 	}
 	
+	/**
+	 * Shuffles the cards
+	 */
 	private void shuffleDecks() {
 		// shuffle the cards 
 		
 	}
 	
+	/**
+	 * Draws a specified number of cards for both players from their respective decks
+	 * 
+	 * @param numcards The number of cards to draw
+	 */
 	private void drawCards(int numcards) {
 		player.setHand(player.getDeck().pullCardsFromDeck(numcards));
 		enemy.setHand(player.getDeck().pullCardsFromDeck(numcards));
 	}
+	
+	/**
+	 * Plays a round of the battle, where both players choose a card to play
+	 */
 	private void playRound() {
 		Scanner scanner = new Scanner(System.in);
 		Random random = new Random();
@@ -80,6 +113,12 @@ public class Battle {
 		
 	}
 	
+	/**
+	 * Compares the cards played by both players and applies damage accordingly
+	 * 
+	 * @param playerCard The card played by the player
+	 * @param enemyCard The card played by the enemy
+	 */
 	private void compareCards(Card playerCard, Card enemyCard) {
 		// if player card.getvalue is greater then take health away from enemy
 		// else if enemy card is greater than take health away from player 

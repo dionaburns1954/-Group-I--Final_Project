@@ -11,6 +11,14 @@ import edu.mu.item.Item;
 import edu.mu.item.ResetShopItem;
 import edu.mu.item.SingleCard;
 
+/**
+ * Represents the in-game shop where players can buy items using currency
+ * Allows players to view available items, purchase items, and refresh the shop inventory
+ * 
+ * @author Logan Bird
+ * @author Ryan Esparza
+ * @author Dion Burns
+ */
 public class shop {
 
 	private List<Item> displayedItems; 
@@ -18,7 +26,9 @@ public class shop {
 	private Deck playerDeck;
 	  
 	  
-	  
+	/**
+	 * Constructor for the Shop class
+	 */
 	public shop() { 
 		
 		displayedItems = new ArrayList<>();
@@ -28,7 +38,9 @@ public class shop {
 	    Select_Displayed_Items();
 	    }//test
 	  
-	
+	/**
+	 * Selects items to be displayed in the shop
+	 */
 	private void Select_Displayed_Items() {
 		displayedItems.clear();
 	  
@@ -42,6 +54,11 @@ public class shop {
 	  
 	  }
 	
+	/**
+	 * Generates a random booster pack item
+	 * 
+	 * @return A random booster pack item
+	 */
 	private Item Get_Random_BoosterPack() {
 		Random random = new Random();
 		int chance =random.nextInt(10);// generate random number between 0 and 9 
@@ -54,6 +71,11 @@ public class shop {
 			}
 		} 
 
+	/**
+	 * Generates a random value for a single card
+	 * 
+	 * @return A random value for a single card
+	 */
 	private int Get_Single_Card_Value() {
 		Random random = new Random ();
 		int ra = random.nextInt(100);
@@ -66,6 +88,12 @@ public class shop {
 			return random.nextInt(4)+10;
 		}
 	}
+	
+	/**
+	 * Generates a random single card item
+	 * 
+	 * @return A random single card item
+	 */
 	private Item Get_Random_Single_Card() { 
 		
 		int value = Get_Single_Card_Value(); // generate random value between 1 and 10 
@@ -73,7 +101,9 @@ public class shop {
 	   }
 	
 
-	
+	/**
+	 * Opens the shop menu, allowing the player to interact with the shop
+	 */
 	public void Open_Shop_Menu() {
 		Scanner scanner = new Scanner(System.in);
 		boolean exitShop = false;
@@ -120,12 +150,21 @@ public class shop {
 		scanner.close();
 	}
 	
+	/**
+	 * Displays items available in the shop
+	 */
 	private void Display_Items () {
 		for (int i =0; i< displayedItems.size(); i++) { 
 			Item item = displayedItems.get(i);
 			System.out.println((i+1)+". " +item.getName() + " - Price: $" + item.getPrice());
 			}
 	  }
+	
+	/**
+	 * Purchases an item from the shop
+	 * 
+	 * @param item The item to purchase
+	 */
 	private void Purchase_Item (Item item) { 
 		item.applyEffect();
 		currency -= item.getPrice();
@@ -135,21 +174,39 @@ public class shop {
 	  System.out.println("remaining Items in shop"); Display_Items();
 	  
 	  }
+	
+	/**
+	 * Adds currency to the player's funds
+	 * 
+	 * @param amount The amount of currency to add
+	 */
 	public void Add_Currency(int amount) { 
 		currency += amount;
 		}
 	  
-	
+	/**
+	 * Refreshes the shop by selecting new displayed items
+	 */
 	public void refreshShop() {
 		Select_Displayed_Items();
 	}
 	
 	// getter?+
 	
+	/**
+	 * Retrieves the current currency balance
+	 * 
+	 * @return The current currency balance
+	 */
 	public int Get_Currency() {
 		return currency;
 	}
 	
+	/**
+	 * Retrieves the list of displayed items in the shop
+	 * 
+	 * @return The list of displayed items
+	 */
 	public List<Item> Get_Displayed_Items() {
 		return displayedItems;
 		}
