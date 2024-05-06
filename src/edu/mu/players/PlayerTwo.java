@@ -25,7 +25,7 @@ public class PlayerTwo extends Player{
 	 * 
 	 * @param level The level of the enemy
 	 */
-	private PlayerTwo(int level) {
+	public PlayerTwo(int level) {
 		//hand = initHand();
 		health = 100;
 		deck = new EnemyDeck(level);
