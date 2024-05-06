@@ -12,3 +12,50 @@ inside the battle gamplay the user starts off with a initlized deck and jumps ri
 
 ## SHOP 
 after a battle the user gets currency, with this currency the user can purchase either more  cards to add to their deck, the ability to remove a card from their deck ( if they want to get rid of low value cards), purchase different battle items to be used in battle such as see what the enemy card is or heal, OR you can purchase an item that reloads the shop. after you purchae all that you want for your deck the user can type exit to go on to the next battlle
+
+
+## PACKAGES 
+edu.mu.battle
+edu.mu.card
+edu.mu.deck
+edu.mu.gamemanager
+edu.mu.item
+edu.mu.main
+edu.mu.players
+edu.mu.shop
+edu.mu.Tests
+
+## Battle class 
+// enter battle class methods
+
+## CARD class
+// enter card class methods 
+
+## DECK Class
+* enemy deck ( enter enemy deck)
+* userDeck ( enter user Deck)
+  // enter deck class methods
+
+## ITEM 
+THERE ARE A LOT OF DIFFERENT ITEMS SO GO THROUGH AND LIST EM ALL 
+* DELeteCardItem( )
+* HealthItem()
+* ItemFactory()
+* ItemType()
+* PeekCardItem()
+* ResetShopItem()
+* SingleCard()
+* SwapCardItem()
+
+## PLAYERS 
+// add player 1 and 2 here 
+
+## SHOP
+// add methods for shop here 
+
+
+## TEST
+ I do not think we would need test here
+
+## GAME MANAGER / MAIN 
+SHOW those two together here 
