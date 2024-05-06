@@ -53,6 +53,51 @@ THERE ARE A LOT OF DIFFERENT ITEMS SO GO THROUGH AND LIST EM ALL
 
 ## SHOP
 // add methods for shop here 
+	
+	public static Shop getInstance() 
+ // this method gets the Instance of the player 
+
+	private void selectDisplayedItems() 
+		// this method selects what items will be displayed in the shop, the choice of items are random
+	
+	private Item getRandomBattleItem() {
+	// this gets a random battle item to be called in selecting displayed items 
+	
+	public void setPlayerTwo(PlayerTwo enemy) {
+		// this method sets the player two
+
+	private Item getRandomBoosterPack() {
+		
+// this item gets a random booster Pack to be called in select displayed items
+
+
+	public void openShopMenu() 
+	    // this method is the method that runs the shop, this method enters a loop showing the user their currency and the items in the shop, it then reads a input the input is either a number OR exit, if the user inputs a number then the method will check to see if that number matches with one of the items in the shop if it does then it will compare the amount of currency the user has with how much the item costs, if the use has enough money then the user will purchase the item and the item will be removed from the shop and the shop will loop back to telling the user their currency and available items, If the user inputs exit this will leave the shop 
+			
+	private void displayItems () 
+		// this displays the items that were selected 
+  
+	private void purchaseItem (Item item)  
+	// this checks to see if the item is a item that needs to be used right away OR if it is a battle item, if it is a item to use right away it will use the items applyEffect, if the item is a battle item it is stored in battle itemit then subtracks the user currency by how ever much the item cost and remove the item from the shop 
+	
+	public void addCurrency(int amount)  
+	 this function adds  what ever the amount it to the players currancy 
+	
+	
+	public void refreshShop() 
+	this refreshes the items inside teh shop 
+	
+	
+	
+	public int getCurrency() 
+   // getter for currency 
+	
+	public List<Item> getDisplayedItems() 
+   // shows the displayed Items in the shop
+
+
+
+
 
 
 ## TEST
