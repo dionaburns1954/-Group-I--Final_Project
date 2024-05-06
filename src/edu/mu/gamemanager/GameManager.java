@@ -125,7 +125,8 @@ public class GameManager {
 			Battle battle = new Battle(player,enemy);
 			int result = battle.startBattle();// call battle method 
 			final int WIN = 1;
-			final int LOSE = 0;
+			final int LOSE = 2;
+			
 			// do we want to update level and user money inside battle function or out here
 			if (result == WIN) {
 				userLevel++;
