@@ -7,7 +7,8 @@ import edu.mu.card.Card;
 
 public class Deck {
 	
-	ArrayList<Card> deck;
+	protected ArrayList<Card> deck;
+	protected final int deckSize = 20;
 	
 	public Deck() {
 		this.deck = initDeck();
@@ -15,7 +16,7 @@ public class Deck {
 	
 	protected ArrayList<Card> initDeck() {
 		ArrayList<Card> deck = new ArrayList<Card>();
-		final int deckSize = 40;
+		//final int deckSize = 20;
 		for(int i = 0; i < deckSize; i++) {
 			Random rand = new Random();
 			Card card = new Card(rand.nextInt(99) + 1);

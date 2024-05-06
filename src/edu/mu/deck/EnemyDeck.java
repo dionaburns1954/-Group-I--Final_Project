@@ -71,8 +71,9 @@ public class EnemyDeck extends Deck {
 	
 	private boolean createDeck(int min, int max) {
 		ArrayList<Card> deck = new ArrayList<Card>();
+		//final int deckSize = 20;
 		Random rand = new Random();
-		for(int i = 0; i < 100; i++) { //creates a temp deck
+		for(int i = 0; i < deckSize; i++) { //creates a temp deck
 			deck.add(new Card(rand.nextInt(max - min) + min));
 		}
 		
