@@ -55,12 +55,17 @@ public class Deck {
 		//removes a certain card from the deck
 		//card that is to be removed are ones that have been pulled
 		//method returns true if card was successfully removed from deck, else returns false
-		deck.remove(card);
-		for(int i = 0; i < deck.size(); i++) {
-			if(deck.get(i) == card)
-				return false;
+		try {
+			deck.remove(card);
+			for(int i = 0; i < deck.size(); i++) {
+				if(deck.get(i) == card)
+					return false;
+			}
+			return true;
+		} catch(Exception e) {
+			System.out.println("ERROR! Could delete Card from deck!");
+			return false;
 		}
-		return true;
 	}
 	
 	/**
