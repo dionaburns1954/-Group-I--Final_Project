@@ -19,7 +19,7 @@ public abstract class Player {
 	 * 
 	 * @param card The card to play
 	 */
-	public abstract void playCard(Card card);
+	public abstract Card playCard(Card card);
 	/**
 	 * Removes the specified card from the player's hand
 	 * 
