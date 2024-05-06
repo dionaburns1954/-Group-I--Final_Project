@@ -19,7 +19,6 @@ public class EnemyDeck extends Deck {
 	 */
 	public EnemyDeck(int level) {
 	
-	//super();
 	deck = new ArrayList<Card>();
 		initializeDeck(level);
 	}
@@ -55,40 +54,30 @@ public class EnemyDeck extends Deck {
 	 * Adds cards to the deck for level 1
 	 */
 	private void Deck_1() {
-		deck.add(new Card(1));
-		// add whatever in deck 1
 		createDeck(0, 20);
 	}
 	/**
 	 * Adds cards to the deck for level 2
 	 */
 	private void Deck_2() {
-		//deck.add(new Card(1));
-		// add whatever in deck 1 
 		createDeck(20, 40);
 	}
 	/**
 	 * Adds cards to the deck for level 3
 	 */
 	private void Deck_3() {
-		//deck.add(new Card(1));
-		// add whatever in deck 1 
 		createDeck(40, 60);
 	}
 	/**
 	 * Adds cards to the deck for level 4
 	 */
 	private void Deck_4() {
-		//deck.add(new Card(1));
-		// add whatever in deck 1
 		createDeck(60, 80);
 	}
 	/**
 	 * Adds cards to the deck for level 5
 	 */
 	private void Deck_5() {
-		//deck.add(new Card(1));
-		// add whatever in deck 1
 		createDeck(60, 80);
 	}
 	/**
@@ -101,7 +90,6 @@ public class EnemyDeck extends Deck {
 		for(Card card : deck) {
 			card.setValue(card.getValue()+level );
 		}
-		// add whatever in deck 1 
 	}
 	
 	/**
@@ -113,7 +101,6 @@ public class EnemyDeck extends Deck {
 	 */
 	private boolean createDeck(int min, int max) {
 		ArrayList<Card> deck = new ArrayList<Card>();
-		//final int deckSize = 20;
 		Random rand = new Random();
 		for(int i = 0; i < deckSize; i++) { //creates a temp deck
 			deck.add(new Card(rand.nextInt(max - min) + min));
