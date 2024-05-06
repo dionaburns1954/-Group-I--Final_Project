@@ -102,7 +102,7 @@ public class GameManager {
 	public void start() {
 		//giveHand();
 		//displayPlayerHand(player); //need to format this correctly
-		shop Shop = new shop();
+		shop Shop = new shop(player.getDeck());
 		//PlayerOne user = new PlayerOne();
 		
 		//user.INITDECK();// intialize starting deck ( depending on how many compares to win a battle Deck should start with very little cards that way it insentivises the user to add to the deck 

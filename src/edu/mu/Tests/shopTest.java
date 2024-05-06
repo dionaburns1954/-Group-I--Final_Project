@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import edu.mu.item.Item;
+import edu.mu.players.PlayerOne;
 import edu.mu.shop.shop;
 
 class shopTest {
@@ -16,7 +17,8 @@ class shopTest {
 	@BeforeAll
 	
 	static void setUp() {
-		Shop = new shop();
+		PlayerOne player = new PlayerOne();
+		Shop = new shop(player.getDeck());
 	}
 	
 	
