@@ -31,7 +31,8 @@ public class GameManager {
 	 * Initializes the player and enemy characters
 	 */
 	public GameManager() {
-		enemy = new PlayerTwo(enemyLvl);
+		enemy = PlayerTwo.getPlayer();
+		shop.setPlayerTwo(enemy);
 		//deck = new Deck();
 	}
 	
@@ -117,7 +118,8 @@ public class GameManager {
 			
 			System.out.println("level " + userLevel);// tell what level your on
 			
-			enemy = new PlayerTwo(userLevel);// set up enemy deck for that level 
+			enemy.refreshEnemy(userLevel);;// set up enemy deck for that level
+			shop.setPlayerTwo(enemy);
 			//enemy.INITDECK(level); initilize enemy deck based on level 
 			
 			int userHealth = 5; // set the health for user 

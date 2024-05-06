@@ -16,13 +16,16 @@ public class PlayerTwo extends Player{
 	private ArrayList<Card> hand;
 	private EnemyDeck deck;
 	private int health;
+	private static PlayerTwo instance = null;
+	
+	
 	
 	/**
 	 * Constructs a new PlayerTwo instance
 	 * 
 	 * @param level The level of the enemy
 	 */
-	public PlayerTwo(int level) {
+	private PlayerTwo(int level) {
 		//hand = initHand();
 		health = 100;
 		deck = new EnemyDeck(level);
@@ -33,9 +36,23 @@ public class PlayerTwo extends Player{
 	 * 
 	 * @param lvl The new level
 	 */
-	public void refreshDeck(int lvl) { //for if you want to change difficulty
+	public void refreshEnemy(int lvl) { //for if you want to change difficulty
+		health = 100;
 		deck.getCards().clear();
 		deck = new EnemyDeck(lvl);
+	}
+	
+	
+	/**
+	 * Gets the current instance of the player
+	 * 
+	 * @return the instance of the player
+	 */
+	public static PlayerTwo getPlayer() {
+		if(instance == null) {
+			instance = new PlayerTwo(1);
+		}
+		return instance;
 	}
 	
 	@Override
