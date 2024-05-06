@@ -30,7 +30,6 @@ public class GameManager {
 	public GameManager() {
 		enemy = PlayerTwo.getPlayer();
 		shop.setPlayerTwo(enemy);
-		//deck = new Deck();
 	}
 	
 	/**
