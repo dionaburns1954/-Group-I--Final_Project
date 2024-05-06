@@ -1,6 +1,6 @@
 package edu.mu.item;
 
-import edu.mu.shop.shop;
+import edu.mu.shop.Shop;
 
 /**
  * Represents an item that resets the shop to refresh its inventory
@@ -11,7 +11,7 @@ import edu.mu.shop.shop;
  */
 public class ResetShopItem extends Item {
 	
-	private shop shopInstance; // Instance of the shop to reset
+	private Shop shopInstance; // Instance of the shop to reset
 	
 	/**
 	 * Constructs a ResetShopItem with the specified name, price, and shop instance
@@ -20,7 +20,7 @@ public class ResetShopItem extends Item {
 	 * @param price The price of the reset shop item
 	 * @param shopInstance The instance of the shop to reset
 	 */
-	public ResetShopItem(String name, int price, shop shopInstance) {
+	public ResetShopItem(String name, int price, Shop shopInstance) {
 		super(name, price);
 		this.shopInstance = shopInstance;
 	}

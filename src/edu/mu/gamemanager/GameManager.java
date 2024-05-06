@@ -1,13 +1,10 @@
 package edu.mu.gamemanager;
 
-import java.util.Scanner;
-
 import edu.mu.battle.Battle;
 import edu.mu.deck.Deck;
-import edu.mu.players.Player;
 import edu.mu.players.PlayerOne;
 import edu.mu.players.PlayerTwo;
-import edu.mu.shop.shop;
+import edu.mu.shop.Shop;
 
 /**
  * Manages the flow of the game, like starting battles, managing player health and levels,
@@ -21,11 +18,13 @@ public class GameManager {
 	
 	private static GameManager instance;
 	
-	private final PlayerOne player = new PlayerOne();
+	private final PlayerOne player = PlayerOne.getPlayer();
+	private Shop shop = Shop.getInstance();
 	private PlayerTwo enemy;
 	private int enemyLvl = 1; //can be changed
 	//private final Deck deck;
 	private final int handNum = 7;
+
 	
 	/**
 	 * Private constructor for the GameManager
@@ -102,7 +101,7 @@ public class GameManager {
 	public void start() {
 		giveHand();
 		//displayPlayerHand(player); //need to format this correctly
-		shop Shop = new shop(player.getDeck());
+
 		//PlayerOne user = new PlayerOne();
 		
 		//user.INITDECK();// intialize starting deck ( depending on how many compares to win a battle Deck should start with very little cards that way it insentivises the user to add to the deck 
@@ -110,7 +109,7 @@ public class GameManager {
 		//user.Level(1);// set the users level to 1 
 		int userLevel = 1; // SET USER LEVEL LIKE THIS ???
 		
-		Shop.addCurrency(10);// starting currency 
+		shop.addCurrency(10);// starting currency 
 		
 		// if we want health to not reset inbetween battles then initilize it here BUT if we want it to reset then initilize it at beginning of loop 
 	
@@ -128,9 +127,9 @@ public class GameManager {
 			// do we want to update level and user money inside battle function or out here
 			if (result == true) {
 				userLevel++;
-				Shop.addCurrency(50);
+				shop.addCurrency(50);
 				
-				Shop.openShopMenu();// if win open shop and let user buy things for deck 
+				shop.openShopMenu();// if win open shop and let user buy things for deck 
 				
 				//idk if we need logic if exit shop go back to begining of loop or not 
 			} 

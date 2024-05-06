@@ -102,6 +102,7 @@ public class Deck {
 		 * from arraylist. Method returns truee if successful, false if unsuccessful
 		 */
 		ArrayList<Card> returnCards = new ArrayList<Card>(); 
+		
 		int deckIndex = 0;
 		for(int i = 0; i < num; i++) {
 			returnCards.add(deck.get(deckIndex)); //pops first card off deck and adds it to returnDeck

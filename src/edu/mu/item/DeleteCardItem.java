@@ -43,6 +43,7 @@ public class DeleteCardItem extends Item{
 		for (int i = 0; i < cards.size(); i++) {
 			System.out.println((i + 1) + ". " + cards.get(i).getValue());
 		}
+		
 		int choice = scanner.nextInt();
 		if ((choice >= 1) && (choice <= cards.size())) {
 			deck.deleteCard(cards.get(choice - 1));

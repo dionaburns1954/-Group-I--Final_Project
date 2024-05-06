@@ -6,10 +6,15 @@ import java.util.Random;
 import java.util.Scanner;
 
 import edu.mu.deck.Deck;
+import edu.mu.deck.UserDeck;
 import edu.mu.item.DeleteCardItem;
 import edu.mu.item.Item;
+import edu.mu.item.ItemFactory;
+import edu.mu.item.ItemType;
 import edu.mu.item.ResetShopItem;
 import edu.mu.item.SingleCard;
+import edu.mu.players.PlayerOne;
+import edu.mu.players.PlayerTwo;
 
 /**
  * Represents the in-game shop where players can buy items using currency
@@ -20,25 +25,37 @@ import edu.mu.item.SingleCard;
  * @author Dion Burns
  * @author Albert Zhou
  */
-public class shop {
+public class Shop {
 
 	private List<Item> displayedItems; 
 	private int currency;
-	private Deck playerDeck;
+	private static Shop instance = null;
+	private ItemFactory itemFactory = new ItemFactory();
+	private PlayerTwo enemy;
 	//private Scanner scan;
 	  
 	  
 	/**
 	 * Constructor for the Shop class
 	 */
-	public shop(Deck deck) { 
+	private Shop() { 
 		
-		displayedItems = new ArrayList<>();
+		displayedItems = new ArrayList<Item>();
 		currency = 0;
-		playerDeck = deck; //init to player's current deck to fix
 		//scan = new Scanner(System.in);
-	    selectDisplayedItems();
-	    }//test
+    }
+	
+	/**
+	 * Gets the current instance of the player
+	 * 
+	 * @return the instance of the player
+	 */
+	public static Shop getInstance() {
+		if(instance == null) {
+			instance = new Shop();
+		}
+		return instance;
+	}
 	  
 	/**
 	 * Selects items to be displayed in the shop
@@ -46,15 +63,24 @@ public class shop {
 	private void selectDisplayedItems() {
 		displayedItems.clear();
 	  
-	  displayedItems.add(getRandomSingleCard());
-	  displayedItems.add(getRandomSingleCard());
-	  displayedItems.add(getRandomBoosterPack());
-	  displayedItems.add(getRandomBoosterPack());
-	  displayedItems.add(new DeleteCardItem("Delete Card", 10, playerDeck)); //change last param to not null
-	  displayedItems.add(new ResetShopItem("Reset Shop", 6, this));
-	  
-	  
-	  }
+		displayedItems.add(itemFactory.getItem(ItemType.GET_SINGLE_CARD));
+		displayedItems.add(itemFactory.getItem(ItemType.GET_SINGLE_CARD));
+		displayedItems.add(getRandomBoosterPack());
+		displayedItems.add(getRandomBoosterPack());
+		displayedItems.add(itemFactory.getItem(ItemType.DELETE)); //change last param to not null
+		displayedItems.add(itemFactory.getItem(ItemType.RESET_SHOP));
+		
+	}
+	
+	private void generateRandomBattleItems() {
+		Random random = new Random();
+		int cardToGenerate = random.nextInt(3);
+		
+	}
+	
+	public void setPlayerTwo(PlayerTwo enemy) {
+		this.enemy = enemy;
+	}
 	
 	/**
 	 * Generates a random booster pack item
@@ -63,50 +89,23 @@ public class shop {
 	 */
 	private Item getRandomBoosterPack() {
 		Random random = new Random();
-		int chance =random.nextInt(10);// generate random number between 0 and 9 
-		if ( chance <= 5){ 
+		int chance = random.nextInt(10); // generate random number between 0 and 9 
+		if (chance <= 5) { 
 			return new SingleCard("Bronze booster", 4, new int[] {22,23,35,37,46,48,59,73});
-			}else if ( chance >5 && chance < 9) {
+			
+			} else if (chance > 5 && chance < 9) {
 				return new SingleCard("Silver booster", 10, new int[] {39,44,46,57,68,69,77,83});
 			} else { 
 				return new SingleCard("Gold booster", 40, new int[] {63,79,78,77,88,82,99,100});
-			}
-		} 
-
-	/**
-	 * Generates a random value for a single card
-	 * 
-	 * @return A random value for a single card
-	 */
-	private int getSingleCardValue() {
-		Random random = new Random ();
-		int ra = random.nextInt(100);
-		
-		if (ra < 70) {
-			return random.nextInt(20)+1;
-		}else if (ra < 90) {
-			return random.nextInt(20)+50;
-		}else {
-			return random.nextInt(20)+80;
 		}
-	}
-	
-	/**
-	 * Generates a random single card item
-	 * 
-	 * @return A random single card item
-	 */
-	private Item getRandomSingleCard() { 
-		
-		int value = getSingleCardValue(); // generate random value between 1 and 10 
-	  return new SingleCard("Card " + value, value/2, new int[] {value}) ;
-	   }
-	
+	} 
 
 	/**
 	 * Opens the shop menu, allowing the player to interact with the shop
 	 */
 	public void openShopMenu() {
+	    selectDisplayedItems();
+		
 		Scanner scanner = new Scanner(System.in);
 		boolean exitShop = false;
 		
@@ -156,7 +155,7 @@ public class shop {
 	private void displayItems () {
 		for (int i =0; i< displayedItems.size(); i++) { 
 			Item item = displayedItems.get(i);
-			System.out.println((i+1)+". " +item.getName() + " - Price: $" + item.getPrice());
+			System.out.println((i + 1) + ". " +item.getName() + " - Price: $" + item.getPrice());
 			}
 	  }
 	
@@ -173,7 +172,7 @@ public class shop {
 	  System.out.println("remaining Currency: $" + currency);
 	  System.out.println("remaining Items in shop"); displayItems();
 	  
-	  }
+	}
 	
 	/**
 	 * Adds currency to the player's funds
@@ -182,7 +181,7 @@ public class shop {
 	 */
 	public void addCurrency(int amount) { 
 		currency += amount;
-		}
+	}
 	  
 	/**
 	 * Refreshes the shop by selecting new displayed items
@@ -190,8 +189,6 @@ public class shop {
 	public void refreshShop() {
 		selectDisplayedItems();
 	}
-	
-	// getter?+
 	
 	/**
 	 * Retrieves the current currency balance
@@ -209,5 +206,5 @@ public class shop {
 	 */
 	public List<Item> getDisplayedItems() {
 		return displayedItems;
-		}
+	}
 }

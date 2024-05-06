@@ -9,16 +9,14 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import edu.mu.item.Item;
-import edu.mu.players.PlayerOne;
-import edu.mu.shop.shop;
+import edu.mu.shop.Shop;
 
 class shopTest {
-	private static shop Shop;
+	private static Shop Shop;
 	@BeforeAll
 	
 	static void setUp() {
-		PlayerOne player = new PlayerOne();
-		Shop = new shop(player.getDeck());
+		Shop = edu.mu.shop.Shop.getInstance();
 	}
 	
 	
