@@ -11,6 +11,7 @@ import edu.mu.card.Card;
  * @author Ryan Esparza
  * @author Logan Bird
  * @author Dion Burns
+ * @author Albert Zhou
  */
 public class Deck {
 	
@@ -60,6 +61,26 @@ public class Deck {
 				return false;
 		}
 		return true;
+	}
+	
+	/**
+	 * Shuffles the cards
+	 * 
+	 * Iterates backwards through the deck, and replaces the card at the current position with a card randomly
+	 * selected from the remaining cards that have not been shuffled.
+	 */
+	public void shuffleDeck() {
+		Random rand = new Random();
+		Card heldCard;
+		
+		ArrayList<Card> cards = this.getCards();
+		for(int i = cards.size() - 1; i > 1; i--) {
+			heldCard = cards.get(i);
+			int randCardIndex = rand.nextInt(i - 1);
+			
+			cards.set(i, cards.get(randCardIndex));
+			cards.set(randCardIndex,  heldCard);
+		} 
 	}
 	
 	//private ArrayList<Card> cards;

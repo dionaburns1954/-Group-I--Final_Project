@@ -26,9 +26,6 @@ public class Battle {
 	private PlayerTwo enemy;
 	private Scanner battleScanner;
 	
-
-	
-	
 	/**
 	 * Constructor for the Battle class
 	 * 
@@ -40,8 +37,6 @@ public class Battle {
 		this.enemy = enemy;
 		
 		battleScanner = new Scanner(System.in);
-		
-		
 	}
 	
 	/**
@@ -49,12 +44,11 @@ public class Battle {
 	 * 
 	 * @return An integer indicating the result of the battle: 1 for player victory, 2 for enemy victory
 	 */
-	public int startBattle() {
+	public boolean startBattle() {
 		
 		System.out.println("START OF BATTLE");
 			shuffleDecks();
 			drawCards(7);
-			int result = 0;
 			
 			while(player.checkPlayerHealth()  && enemy.checkPlayerHealth() ) {
 			playRound();
@@ -64,38 +58,18 @@ public class Battle {
 		}
 			
 		if(!player.checkPlayerHealth()) {
-			System.out.println("\nYou Lose ");
-			result = 2; // print out lose message 
-		} else {
-			System.out.println("You win off to next battle");
-			result = 1;// print out win message 
+			System.out.println("\nYou Lose "); // Print victory message
+			return false;
 		}
-		//battleScanner.close();
-		return result;
 		
+		System.out.println("You win off to next battle");
+		return true;// print out win message 
 	}
 	
-	
-	/**
-	 * Shuffles the cards
-	 */
-	private void shuffleDeck(Deck deck) {
-		Random rand = new Random();
-		Card heldCard;
-		
-		ArrayList<Card> cards = deck.getCards();
-		for(int i = cards.size() - 1; i > 1; i--) {
-			heldCard = cards.get(i);
-			int randCardIndex = rand.nextInt(i - 1);
-			
-			cards.set(i, cards.get(randCardIndex));
-			cards.set(randCardIndex,  heldCard);
-		} // I don't even know if this works. Theoretically it should get the reference to the Deck's cards list.
-	}
 	
 	private void shuffleDecks() {
-		shuffleDeck(player.getDeck());
-		shuffleDeck(enemy.getDeck());
+		player.getDeck().shuffleDeck();
+		enemy.getDeck().shuffleDeck();
 	}
 	
 	/**
@@ -117,45 +91,44 @@ public class Battle {
 		Random random = new Random();
 		
 		for(int i = 0; i < player.getHand().size(); i++) {
-			System.out.print("Card " + (i + 1) + ": " + player.getHand().get(i).getValue());
-			System.out.println();
+			System.out.print("Card " + (i + 1) + ": " + player.getHand().get(i).getValue() + "\n");
 		}
 		
 		boolean ValidInput = false;
-		while (!ValidInput) {
-		System.out.print("choose a card to play: ");
-		
-	try {
-		int playerchoice = battleScanner.nextInt()-1;
-		if ( playerchoice >= 0 && playerchoice <player.getHand().size())
-		{
-			ValidInput = true;
-		
-		Card playerCard = player.getHand().get(playerchoice);
-		player.getHand().remove(playerCard);
-		
-		
-		int enemychoice = random.nextInt(enemy.getHand().size());
-		Card enemyCard = enemy.getHand().get(enemychoice);
-		enemy.getHand().remove(enemyCard);
-		
-		
-		System.out.println("Player plays card with value of: " + playerCard.getValue());
-		System.out.println("Enemy plays card with value of: "+ enemyCard.getValue());
-		
-		compareCards(playerCard, enemyCard);
-		
-	}else {
-		System.out.println("Invalid input please try again");
+		while (!ValidInput) {	
+			System.out.print("choose a card to play: ");
+			
+			try {
+				int playerchoice = battleScanner.nextInt()-1;
+				
+				if ( playerchoice >= 0 && playerchoice <player.getHand().size())
+				{
+					ValidInput = true;
+			
+					Card playerCard = player.getHand().get(playerchoice);
+					player.getHand().remove(playerCard);
+					
+					
+					int enemychoice = random.nextInt(enemy.getHand().size());
+					Card enemyCard = enemy.getHand().get(enemychoice);
+					enemy.getHand().remove(enemyCard);
+					
+					
+					System.out.println("Player plays card with value of: " + playerCard.getValue());
+					System.out.println("Enemy plays card with value of: "+ enemyCard.getValue());
+					
+					compareCards(playerCard, enemyCard);
+				
+				} else {
+					System.out.println("Invalid input please try again");
+				}
+			
+			} catch(NoSuchElementException e) {
+				System.out.println("ERROR not valid input");
+			} finally {
+				battleScanner.nextLine();
+			}
 		}
-	
-		}catch(NoSuchElementException e) {
-	
-		System.out.println("ERROR not valid input");
-	}finally {
-		battleScanner.nextLine();
-}
-	}
 	}
 	
 	/**
@@ -175,5 +148,5 @@ public class Battle {
 		else { 
 			System.out.println("\nYOU took damage");
 			player.damagePlayer(DAMAGEAMOUNT);}
+		}
 	}
-}

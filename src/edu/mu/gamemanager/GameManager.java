@@ -123,12 +123,10 @@ public class GameManager {
 			
 			int userHealth = 5; // set the health for user 
 			Battle battle = new Battle(player,enemy);
-			int result = battle.startBattle();// call battle method 
-			final int WIN = 1;
-			final int LOSE = 2;
+			boolean result = battle.startBattle();// call battle method 
 			
 			// do we want to update level and user money inside battle function or out here
-			if (result == WIN) {
+			if (result == true) {
 				userLevel++;
 				Shop.Add_Currency(50);
 				
@@ -136,7 +134,7 @@ public class GameManager {
 				
 				//idk if we need logic if exit shop go back to begining of loop or not 
 			} 
-			else if ( result == LOSE) {// if lose then break out of loop 
+			else if ( result == false) {// if lose then break out of loop 
 				System.out.println("Game Over - You Lose!");
 				break;
 			}
