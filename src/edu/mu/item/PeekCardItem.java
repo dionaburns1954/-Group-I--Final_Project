@@ -4,7 +4,7 @@ import edu.mu.players.PlayerTwo;
 
 public class PeekCardItem extends Item {
 
-	PlayerTwo enemy;
+	private PlayerTwo enemy;
 	
 	public PeekCardItem(String name, int price) {
 		super(name, price);

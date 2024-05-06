@@ -96,38 +96,29 @@ public class GameManager {
 	 */
 	public void start() {
 		giveHand();
-		//displayPlayerHand(player); //need to format this correctly
-
-		//PlayerOne user = new PlayerOne();
 		
-		//user.INITDECK();// intialize starting deck ( depending on how many compares to win a battle Deck should start with very little cards that way it insentivises the user to add to the deck 
-		
-		//user.Level(1);// set the users level to 1 
-		int userLevel = 1; // SET USER LEVEL LIKE THIS ???
+		int userLevel = 1; 
 		
 		shop.addCurrency(10);// starting currency 
 		
-		// if we want health to not reset inbetween battles then initilize it here BUT if we want it to reset then initilize it at beginning of loop 
-	
+		
 		while(true) { // GAME PLAY LOOP 
 			
-			System.out.println("level " + userLevel);// tell what level your on
+			System.out.println("level " + userLevel);// tell what level you're on
 			
 			enemy.refreshEnemy(userLevel);;// set up enemy deck for that level
 			shop.setPlayerTwo(enemy);
-			//enemy.INITDECK(level); initilize enemy deck based on level 
 			
 			Battle battle = new Battle(player,enemy);
 			boolean result = battle.startBattle();// call battle method 
 			
-			// do we want to update level and user money inside battle function or out here
+			
 			if (result == true) {
 				userLevel++;
 				shop.addCurrency(50);
 				
 				shop.openShopMenu();// if win open shop and let user buy things for deck 
 				
-				//idk if we need logic if exit shop go back to begining of loop or not 
 			} 
 			else if ( result == false) {// if lose then break out of loop 
 				System.out.println("Game Over - You Lose!");
@@ -135,14 +126,6 @@ public class GameManager {
 			}
 			
 		}
-	
-		// start battle 
-				// iniside battle 
-				// shuffle both decks 
-				// IF we are doing playable hand then have player draw cards that they can choose to use IF we are doing a war style then draw top card off the deck 
-				// take the two chosen cards and compare who ever card value is the highest wins
-				// loser loses a life and we repeat battle until someone has all of their life points out. 
-				// once winner  add level and add currency 
 	}	
 	
 	/**
