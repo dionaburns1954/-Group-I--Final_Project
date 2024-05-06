@@ -6,10 +6,10 @@ public class PeekCardItem extends Item {
 
 	PlayerTwo enemy;
 	
-	public PeekCardItem(String name, int price, PlayerTwo enemy) {
+	public PeekCardItem(String name, int price) {
 		super(name, price);
 		// TODO Auto-generated constructor stub
-		this.enemy = enemy;
+		this.enemy = PlayerTwo.getPlayer();
 	}
 
 	@Override
