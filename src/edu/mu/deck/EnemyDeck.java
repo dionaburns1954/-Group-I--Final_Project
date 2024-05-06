@@ -5,8 +5,18 @@ import java.util.Random;
 
 import edu.mu.card.Card;
 
+/**
+ * Represents an enemy deck in the game, containing cards used by opponent
+ * 
+ * @author Logan Bird
+ * @author Dion Burns
+ */
 public class EnemyDeck extends Deck {
-	
+	/**
+	 * Constructs an EnemyDeck object with the specified level
+	 * 
+	 * @param level The level of the enemy deck
+	 */
 	public EnemyDeck(int level) {
 	
 	//super();
@@ -14,6 +24,11 @@ public class EnemyDeck extends Deck {
 	initializeDeck(level);
 	}
 	
+	/**
+	 * Initializes the deck based on the specified level
+	 * 
+	 * @param level The level of the enemy deck
+	 */
 	protected void initializeDeck(int level) {
 		if ( level == 1) {
 			Deck_1();
@@ -36,31 +51,51 @@ public class EnemyDeck extends Deck {
 		}
 	}
 	
+	/**
+	 * Adds cards to the deck for level 1
+	 */
 	private void Deck_1() {
 		deck.add(new Card(1));
 		// add whatever in deck 1
 		createDeck(0, 20);
 	}
+	/**
+	 * Adds cards to the deck for level 2
+	 */
 	private void Deck_2() {
 		//deck.add(new Card(1));
 		// add whatever in deck 1 
 		createDeck(20, 40);
 	}
+	/**
+	 * Adds cards to the deck for level 3
+	 */
 	private void Deck_3() {
 		//deck.add(new Card(1));
 		// add whatever in deck 1 
 		createDeck(40, 60);
 	}
+	/**
+	 * Adds cards to the deck for level 4
+	 */
 	private void Deck_4() {
 		//deck.add(new Card(1));
 		// add whatever in deck 1
 		createDeck(60, 80);
 	}
+	/**
+	 * Adds cards to the deck for level 5
+	 */
 	private void Deck_5() {
 		//deck.add(new Card(1));
 		// add whatever in deck 1
 		createDeck(60, 80);
 	}
+	/**
+	 * Adds cards to the deck for levels above 5
+	 * 
+	 * @param level The level of the enemy decks
+	 */
 	private void Deck_above5(int level) {
 		Deck_5();
 		for(Card card : deck) {
@@ -69,6 +104,13 @@ public class EnemyDeck extends Deck {
 		// add whatever in deck 1 
 	}
 	
+	/**
+	 * Creates a deck of cards with values between the specified range
+	 * 
+	 * @param min The minimum value of the cards
+	 * @param max The maximum value of the cards
+	 * @return True of the deck was successfully created, false otherwise
+	 */
 	private boolean createDeck(int min, int max) {
 		ArrayList<Card> deck = new ArrayList<Card>();
 		//final int deckSize = 20;
