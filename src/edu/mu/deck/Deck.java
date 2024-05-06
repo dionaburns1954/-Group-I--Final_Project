@@ -15,7 +15,7 @@ import edu.mu.card.Card;
 public class Deck {
 	
 	protected ArrayList<Card> deck;
-	protected final int deckSize = 20;
+	protected final int deckSize = 100;
 	
 	/**
 	 * Constructs a new Deck instance and initializes it with the cards
