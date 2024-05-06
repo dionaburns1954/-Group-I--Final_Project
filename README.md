@@ -15,15 +15,16 @@ after a battle the user gets currency, with this currency the user can purchase 
 
 
 ## PACKAGES 
-edu.mu.battle
-edu.mu.card
-edu.mu.deck
-edu.mu.gamemanager
-edu.mu.item
-edu.mu.main
-edu.mu.players
-edu.mu.shop
-edu.mu.Tests
+* edu.mu.battle
+* edu.mu.card
+* edu.mu.deck
+* edu.mu.gamemanager
+* edu.mu.item
+* edu.mu.main
+* edu.mu.players
+* edu.mu.shop
+* edu.mu.Tests
+
 
 ## Battle class 
 // enter battle class methods
