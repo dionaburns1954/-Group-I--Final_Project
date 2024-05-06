@@ -1,5 +1,6 @@
 package edu.mu.item;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import edu.mu.deck.Deck;
 import edu.mu.card.Card;
@@ -48,6 +49,10 @@ public class DeleteCardItem extends Item{
 		} else {
 			System.out.println("Invalid choice. No card was deleted");
 		}
+		
+		//replace deleted card with new one
+		Random rand = new Random();
+		deck.addCard(new Card(rand.nextInt(99) + 1));
 		//scanner.close();
 	}
 

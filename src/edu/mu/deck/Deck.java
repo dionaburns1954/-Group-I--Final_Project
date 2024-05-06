@@ -95,7 +95,6 @@ public class Deck {
 			Card card = new Card(value);
 			deck.add(card);
 		}
-		
 		return returnCards;
 	}
 	
