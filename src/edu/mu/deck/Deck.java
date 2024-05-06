@@ -73,13 +73,12 @@ public class Deck {
 		Random rand = new Random();
 		Card heldCard;
 		
-		ArrayList<Card> cards = this.getCards();
-		for(int i = cards.size() - 1; i > 1; i--) {
-			heldCard = cards.get(i);
+		for(int i = deck.size() - 1; i > 1; i--) {
+			heldCard = deck.get(i);
 			int randCardIndex = rand.nextInt(i - 1);
 			
-			cards.set(i, cards.get(randCardIndex));
-			cards.set(randCardIndex,  heldCard);
+			deck.set(i, deck.get(randCardIndex));
+			deck.set(randCardIndex,  heldCard);
 		} 
 	}
 	
