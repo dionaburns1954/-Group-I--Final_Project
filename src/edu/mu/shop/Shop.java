@@ -69,13 +69,30 @@ public class Shop {
 		displayedItems.add(getRandomBoosterPack());
 		displayedItems.add(itemFactory.getItem(ItemType.DELETE)); //change last param to not null
 		displayedItems.add(itemFactory.getItem(ItemType.RESET_SHOP));
+		displayedItems.add(getRandomBattleItem());
+		displayedItems.add(getRandomBattleItem());
 		
 	}
 	
-	private void generateRandomBattleItems() {
+	private Item getRandomBattleItem() {
 		Random random = new Random();
-		int cardToGenerate = random.nextInt(3);
+		int itemToGenerate = random.nextInt(3);
 		
+		Item item = null;
+		
+		switch (itemToGenerate) {
+		case 0:
+			item = itemFactory.getBattleItem(ItemType.HEAL);
+			break;
+		case 1:
+			item = itemFactory.getBattleItem(ItemType.PEEK_CARD);
+			break;
+		case 2:
+			item = itemFactory.getBattleItem(ItemType.SWAP_CARD);
+			break;
+		}
+		
+		return item;
 	}
 	
 	public void setPlayerTwo(PlayerTwo enemy) {
@@ -117,31 +134,31 @@ public class Shop {
 			displayItems();
 			
 			boolean validInput = false;
-					while (!validInput) {
-						System.out.println("Enter the number of the item you wish to purchase OR 'exit' to leave the shop:");
-						
-						String input = scanner.next();
-						
-						if ( input.equalsIgnoreCase("exit")) {
-							System.out.println("Exiting the Shop");
-							exitShop = true;
-							validInput = true;
+			while (!validInput) {
+				System.out.println("Enter the number of the item you wish to purchase OR 'exit' to leave the shop:");
+				
+				String input = scanner.next();
+				
+				if ( input.equalsIgnoreCase("exit")) {
+					System.out.println("Exiting the Shop");
+					exitShop = true;
+					validInput = true;
+				} else {
+					try {
+						int itemNumber = Integer.parseInt(input)-1;
+						if ( itemNumber >= 0 && itemNumber < displayedItems.size()) {
+							Item selectedItem = displayedItems.get(itemNumber);
+							if ( currency >= selectedItem.getPrice()) {
+								purchaseItem(selectedItem);
+								
+							}else {
+								System.out.println("Insufficient funds!");
+							}
 						} else {
-							try {
-								int itemNumber = Integer.parseInt(input)-1;
-								if ( itemNumber >= 0 && itemNumber < displayedItems.size()) {
-									Item selectedItem = displayedItems.get(itemNumber);
-									if ( currency >= selectedItem.getPrice()) {
-										purchaseItem(selectedItem);
-										
-									}else {
-										System.out.println("Insufficient funds!");
-									}
-								} else {
-									System.out.println("invalid item number");
-								}
-							} catch ( NumberFormatException e) {
-								System.out.println("Invalid input, please enter a valid item number or exit to leave");
+							System.out.println("invalid item number");
+						}
+					} catch ( NumberFormatException e) {
+						System.out.println("Invalid input, please enter a valid item number or exit to leave");
 					}
 				}
 			}
@@ -165,13 +182,16 @@ public class Shop {
 	 * @param item The item to purchase
 	 */
 	private void purchaseItem (Item item) { 
-		item.applyEffect();
+		if(item instanceof DeleteCardItem || item instanceof ResetShopItem || item instanceof SingleCard) {
+			item.applyEffect();
+		} else {
+			PlayerOne.getPlayer().addBattleItem(item);
+		}
 		currency -= item.getPrice();
 		displayedItems.remove(item);
-	  System.out.println("You Purchased: " + item.getName());
-	  System.out.println("remaining Currency: $" + currency);
-	  System.out.println("remaining Items in shop"); displayItems();
-	  
+		System.out.println("You Purchased: " + item.getName());
+		System.out.println("remaining Currency: $" + currency);
+		System.out.println("remaining Items in shop"); displayItems();
 	}
 	
 	/**

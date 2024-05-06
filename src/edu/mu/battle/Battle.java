@@ -25,7 +25,7 @@ public class Battle {
 	private final int DAMAGEAMOUNT = 50;
 	private PlayerOne player;
 	private PlayerTwo enemy;
-	private Scanner battleScanner;
+	public static final Scanner battleScanner = new Scanner(System.in);
 	
 	/**
 	 * Constructor for the Battle class
@@ -37,7 +37,6 @@ public class Battle {
 		this.player = Player;
 		this.enemy = enemy;
 		
-		battleScanner = new Scanner(System.in);
 	}
 	
 	/**
@@ -48,11 +47,11 @@ public class Battle {
 	public boolean startBattle() {
 		
 		System.out.println("START OF BATTLE");
-			shuffleDecks();
-			
-			drawCards(7);
-			
-			while(player.checkPlayerHealth()  && enemy.checkPlayerHealth() ) {
+		shuffleDecks();
+		
+		drawCards(7);
+		
+		while(player.checkPlayerHealth()  && enemy.checkPlayerHealth() ) {
 			playRound();
 			
 			System.out.println("\nEnd of round.");
@@ -92,20 +91,43 @@ public class Battle {
 		}
 		
 		while(isInBattleItemMenu) {
-			System.out.println("Select a battle item to use or enter " + player.getBattleItems().size() + " to exit:");
+			System.out.println("\nBattle items available to you: ");
+			int i = 0;
+			for(Item item : player.getBattleItems()) {
+				i++;
+				System.out.println(i + ": " + item.getName());
+			}
+			
+			System.out.println("Select a battle item to use or enter " + (i + 1) + " to exit:");
 			
 			try { 
 				int itemChoice = battleScanner.nextInt() - 1;
 				
 				if (itemChoice >= 0 && itemChoice < player.getBattleItems().size()) {
 					Item item = player.getBattleItems().get(itemChoice);
-					
 					item.applyEffect();
+					player.getBattleItems().remove(item);
+					
+					if(player.getBattleItems().size() == 0) {
+						isInBattleItemMenu = false;
+						displayPlayerHand();
+					}
+				} else {
+					isInBattleItemMenu = false;
+					displayPlayerHand();
+					break;
 				}
 				
 			} catch(NoSuchElementException e) {
 				System.out.println("Please enter a valid choice.");
+				
 			}
+		}
+	}
+	
+	private void displayPlayerHand() {
+		for(int i = 0; i < player.getHand().size(); i++) {
+			System.out.print("Card " + (i + 1) + ": " + player.getHand().get(i).getValue() + "\n");
 		}
 	}
 	
@@ -117,14 +139,13 @@ public class Battle {
 				
 		Random random = new Random();
 		
-		for(int i = 0; i < player.getHand().size(); i++) {
-			System.out.print("Card " + (i + 1) + ": " + player.getHand().get(i).getValue() + "\n");
-		}
+		displayPlayerHand();
 		
 		openBattleItemMenu();
 		
 		boolean isInCardMenu = true;
 		while (isInCardMenu) {	
+			System.out.println("\nYou have " + player.getHealth() + " HP.");
 			System.out.print("Choose a card to play: ");
 			
 			try {
