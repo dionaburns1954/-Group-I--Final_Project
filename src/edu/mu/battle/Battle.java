@@ -3,11 +3,8 @@ package edu.mu.battle;
 import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
 
 import edu.mu.card.Card;
-import edu.mu.deck.Deck;
 import edu.mu.item.Item;
 import edu.mu.players.PlayerOne;
 import edu.mu.players.PlayerTwo;
@@ -22,7 +19,7 @@ import edu.mu.players.PlayerTwo;
  */
 public class Battle {
 
-	private final int DAMAGEAMOUNT = 50;
+	private final int damageAmount = 50;
 	private PlayerOne player;
 	private PlayerTwo enemy;
 	public static final Scanner battleScanner = new Scanner(System.in);
@@ -112,15 +109,15 @@ public class Battle {
 						isInBattleItemMenu = false;
 						displayPlayerHand();
 					}
-				} else {
-					isInBattleItemMenu = false;
+				} else if (itemChoice == player.getBattleItems().size()) {
 					displayPlayerHand();
-					break;
+					isInBattleItemMenu = false;
+				} else {
+					System.out.println("Please enter a valid choice.");
 				}
-				
 			} catch(NoSuchElementException e) {
 				System.out.println("Please enter a valid choice.");
-				
+				battleScanner.next();
 			}
 		}
 	}
@@ -193,9 +190,9 @@ public class Battle {
 		boolean playerCardLarger = (playerCard.getValue() >= enemyCard.getValue()) ? true : false;
 		if(playerCardLarger) {
 			System.out.println("\nenemy took damage");
-			enemy.damagePlayer(DAMAGEAMOUNT);}
+			enemy.damagePlayer(damageAmount);}
 		else { 
 			System.out.println("\nYOU took damage");
-			player.damagePlayer(DAMAGEAMOUNT);}
+			player.damagePlayer(damageAmount);}
 		}
 	}
