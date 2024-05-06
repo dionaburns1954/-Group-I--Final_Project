@@ -116,7 +116,7 @@ public class GameManager {
 	
 		while(true) { // GAME PLAY LOOP 
 			
-			System.out.println("level" + userLevel);// tell what level your on
+			System.out.println("level " + userLevel);// tell what level your on
 			
 			enemy = new PlayerTwo(userLevel);// set up enemy deck for that level 
 			//enemy.INITDECK(level); initilize enemy deck based on level 

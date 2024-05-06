@@ -60,8 +60,10 @@ public class Battle {
 			
 		}
 		if(player.checkPlayerHealth() == false) {
+			System.out.println("\nYou Lose ");
 			return 2; // print out lose message 
 		} else {
+			System.out.println("You win off to next battle");
 			return 1;// print out win message 
 		}
 	}
@@ -89,19 +91,24 @@ public class Battle {
 	 */
 	private void playRound() {
 		Scanner scanner = new Scanner(System.in);
+				
 		Random random = new Random();
 		
-		System.out.println("\nPlayer's hand: " + player.getHand());
+		for(int i = 0; i < player.getHand().size(); i++) {
+			System.out.print("Card " + (i + 1) + ": " + player.getHand().get(i).getValue());
+			System.out.println();
+		}
+		
 		
 		System.out.print("choose a card to play");
 		
 		
-		int playerchoice = scanner.nextInt();
+		Integer playerchoice = scanner.nextInt();
 		Card playerCard = player.getHand().get(playerchoice);
 		player.getHand().remove(playerCard);
 		
 		scanner.close();
-		int enemychoice = random.nextInt(enemy.getHand().size());
+		Integer enemychoice = random.nextInt(enemy.getHand().size());
 		Card enemyCard = enemy.getHand().get(enemychoice);
 		enemy.getHand().remove(enemyCard);
 		
@@ -124,8 +131,12 @@ public class Battle {
 		// else if enemy card is greater than take health away from player 
 		// else it is a tie 
 		boolean playerCardLarger = (playerCard.getValue() >= enemyCard.getValue()) ? true : false;
-		if(playerCardLarger) enemy.damagePlayer(DAMAGEAMOUNT);
-		else player.damagePlayer(DAMAGEAMOUNT);
+		if(playerCardLarger) {
+			System.out.println("\nenemy took damage");
+			enemy.damagePlayer(DAMAGEAMOUNT);}
+		else { 
+			System.out.println("\nYOU took damage");
+			player.damagePlayer(DAMAGEAMOUNT);}
 	}
 }
 
