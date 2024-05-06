@@ -1,7 +1,5 @@
 package edu.mu.deck;
 
-import java.util.ArrayList;
-import java.util.List;
 import edu.mu.card.*;
 
 /**
@@ -25,7 +23,7 @@ public class UserDeck extends Deck {
 	/**
 	 * Initializes the user's deck with default cards
 	 */
-	private void initialize_Deck() {
+	private void initializeDeck() {
 		for(int i =1;i<=5; i++) {
 			deck.add(new Card(i));
 		}

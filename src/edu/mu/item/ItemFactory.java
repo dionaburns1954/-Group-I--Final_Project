@@ -3,7 +3,6 @@ package edu.mu.item;
 import java.util.Random;
 
 import edu.mu.players.PlayerOne;
-import edu.mu.players.PlayerTwo;
 import edu.mu.shop.Shop;
 
 /**

@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import edu.mu.deck.Deck;
-import edu.mu.deck.UserDeck;
 import edu.mu.item.DeleteCardItem;
 import edu.mu.item.Item;
 import edu.mu.item.ItemFactory;
@@ -32,8 +30,6 @@ public class Shop {
 	private static Shop instance = null;
 	private ItemFactory itemFactory = new ItemFactory();
 	private PlayerTwo enemy;
-	//private Scanner scan;
-	  
 	  
 	/**
 	 * Constructor for the Shop class
@@ -42,7 +38,6 @@ public class Shop {
 		
 		displayedItems = new ArrayList<Item>();
 		currency = 0;
-		//scan = new Scanner(System.in);
     }
 	
 	/**

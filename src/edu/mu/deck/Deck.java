@@ -40,7 +40,7 @@ public class Deck {
 		}
 		
 		if(deck.size() == 0)
-			return null;
+			return deck;
 		
 		return deck;
  	}

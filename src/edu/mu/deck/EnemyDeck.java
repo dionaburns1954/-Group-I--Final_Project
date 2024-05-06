@@ -21,7 +21,7 @@ public class EnemyDeck extends Deck {
 	
 	//super();
 	deck = new ArrayList<Card>();
-	initializeDeck(level);
+		initializeDeck(level);
 	}
 	
 	/**

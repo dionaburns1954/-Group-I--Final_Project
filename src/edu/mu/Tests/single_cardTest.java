@@ -1,6 +1,5 @@
 package edu.mu.Tests;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import edu.mu.item.SingleCard;
 

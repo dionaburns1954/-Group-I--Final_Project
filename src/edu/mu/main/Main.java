@@ -1,10 +1,6 @@
 package edu.mu.main;
 
-import java.util.Random;
-
 import edu.mu.gamemanager.GameManager;
-import edu.mu.item.SingleCard;
-import edu.mu.shop.Shop;
 
 /**
  * The main class to run the game

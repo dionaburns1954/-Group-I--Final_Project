@@ -3,7 +3,6 @@ package edu.mu.item;
 import java.util.Random;
 
 import edu.mu.card.Card;
-import edu.mu.deck.Deck;
 import edu.mu.gamemanager.GameManager;
 
 /**

@@ -8,8 +8,8 @@ import edu.mu.shop.Shop;
 
 /**
  * Manages the flow of the game, like starting battles, managing player health and levels,
- * displaying player hands, and interacting with the shop
- * 
+ * displaying player hands, and interacting with the shop.
+
  * @author Dion Burns
  * @author Logan Bird
  * @author Ryan Esparza
@@ -21,10 +21,7 @@ public class GameManager {
 	private final PlayerOne player = PlayerOne.getPlayer();
 	private Shop shop = Shop.getInstance();
 	private PlayerTwo enemy;
-	private int enemyLvl = 1; //can be changed
-	//private final Deck deck;
 	private final int handNum = 7;
-
 	
 	/**
 	 * Private constructor for the GameManager
@@ -47,7 +44,6 @@ public class GameManager {
 		
 		enemy.setHand(player.getDeck().pullCardsFromDeck(handNum));
 		if(enemy.getHand().size() <= 0) return false;
-		
 		
 		return true;
 		
@@ -122,7 +118,6 @@ public class GameManager {
 			shop.setPlayerTwo(enemy);
 			//enemy.INITDECK(level); initilize enemy deck based on level 
 			
-			int userHealth = 5; // set the health for user 
 			Battle battle = new Battle(player,enemy);
 			boolean result = battle.startBattle();// call battle method 
 			

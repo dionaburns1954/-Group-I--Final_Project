@@ -35,7 +35,8 @@ public class SwapCardItem extends Item {
 		boolean isSelectingCard = true;
 		while(isSelectingCard) {
 			int chosenCardIndex = scanner.nextInt();
-			if ((chosenCardIndex > 0) && (chosenCardIndex <= i)) {
+			
+			if (chosenCardIndex > 0 && chosenCardIndex <= i) {
 				int swappedCardIndex = rand.nextInt(enemy.getHand().size() - 1);
 				
 				chosenCardIndex -= 1;
@@ -49,6 +50,7 @@ public class SwapCardItem extends Item {
 				System.out.println("You recieved a card of value " + heldCard.getValue() + " from the enemy's hand.");
 				isSelectingCard = false;
 				break;
+				
 			} else {
 				System.out.println("Please select a card to swap.");
 			}
