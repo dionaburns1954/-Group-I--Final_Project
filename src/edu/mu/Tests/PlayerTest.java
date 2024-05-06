@@ -27,6 +27,7 @@ class PlayerTest {
 		player.setHand(player.getDeck().pullCardsFromDeck(7));
 		Card card = player.getHand().get(0);
 		player.removeCard(card);
+		//tests to see if removed card is still in player's hand
 		assertEquals(1, loopThroughHand(player.getHand(), card));
 		
 	}
