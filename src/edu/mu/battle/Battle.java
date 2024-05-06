@@ -20,10 +20,10 @@ public class Battle {
 	
 
 
-	private final int DAMAGEAMOUNT = 33;
+	private final int DAMAGEAMOUNT = 50;
 	private PlayerOne player;
 	private PlayerTwo enemy;
-
+	private Scanner battleScanner;
 	
 
 	
@@ -38,7 +38,7 @@ public class Battle {
 		this.player = Player;
 		this.enemy = enemy;
 		
-		
+		battleScanner = new Scanner(System.in);
 		
 		
 	}
@@ -50,25 +50,30 @@ public class Battle {
 	 */
 	public int startBattle() {
 		
-		
+		System.out.println("START OF BATTLE");
 			shuffleDecks();
 			drawCards(7);
+			int result = 0;
 			
-			while(player.checkPlayerHealth() != false && enemy.checkPlayerHealth() != false ) {
+			while(player.checkPlayerHealth()  && enemy.checkPlayerHealth() ) {
 			playRound();
 			
 			System.out.println("\nEnd of round.");
 			System.out.println("enemy health = " + enemy.checkPlayerHealth());
 		}
 			
-		if(player.checkPlayerHealth() == false) {
+		if(!player.checkPlayerHealth()) {
 			System.out.println("\nYou Lose ");
-			return 2; // print out lose message 
+			result = 2; // print out lose message 
 		} else {
 			System.out.println("You win off to next battle");
-			return 1;// print out win message 
+			result = 1;// print out win message 
 		}
+		//battleScanner.close();
+		return result;
+		
 	}
+	
 	
 	/**
 	 * Shuffles the cards
@@ -92,7 +97,7 @@ public class Battle {
 	 * Plays a round of the battle, where both players choose a card to play
 	 */
 	private void playRound() {
-		Scanner scanner = new Scanner(System.in);
+		
 				
 		Random random = new Random();
 		
@@ -101,11 +106,15 @@ public class Battle {
 			System.out.println();
 		}
 		
-		
+		boolean ValidInput = false;
+		while (!ValidInput) {
 		System.out.print("choose a card to play");
 		
 	try {
-		int playerchoice = scanner.nextInt()-1;
+		int playerchoice = battleScanner.nextInt()-1;
+		if ( playerchoice >= 0 && playerchoice <player.getHand().size())
+		{
+			ValidInput = true;
 		
 		Card playerCard = player.getHand().get(playerchoice);
 		player.getHand().remove(playerCard);
@@ -121,12 +130,18 @@ public class Battle {
 		
 		compareCards(playerCard, enemyCard);
 		
-	}catch (NoSuchElementException e) {
+	}else {
+		System.out.println("Invalid input please try again");
+		}
+	
+		}catch(NoSuchElementException e) {
+	
 		System.out.println("ERROR not valid input");
-	}finally{
-		scanner.nextLine();
-	}
+	}finally {
+		battleScanner.nextLine();
 }
+	}
+	}
 	
 	/**
 	 * Compares the cards played by both players and applies damage accordingly
