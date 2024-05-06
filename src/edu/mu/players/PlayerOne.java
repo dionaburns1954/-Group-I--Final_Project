@@ -27,7 +27,7 @@ public class PlayerOne extends Player { //This is the character that you will pl
 	/**
 	 * Constructs a new PlayerOne instance
 	 */
-	private PlayerOne() {
+	public PlayerOne() {
 		deck = new UserDeck();
 		//hand = initHand();
 		health = 100;
