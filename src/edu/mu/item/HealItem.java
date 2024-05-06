@@ -3,7 +3,7 @@ package edu.mu.item;
 import edu.mu.players.PlayerOne;
 
 public class HealItem extends Item {
-	int healthToHeal;
+	private int healthToHeal;
 	
 	public HealItem(String name, int healthToHeal) {
 		super(name, calculateCost(healthToHeal));
