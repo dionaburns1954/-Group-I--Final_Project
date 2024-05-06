@@ -108,7 +108,7 @@ public class Battle {
 		
 		boolean ValidInput = false;
 		while (!ValidInput) {
-		System.out.print("choose a card to play");
+		System.out.print("choose a card to play: ");
 		
 	try {
 		int playerchoice = battleScanner.nextInt()-1;
