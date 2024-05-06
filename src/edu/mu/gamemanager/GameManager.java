@@ -83,7 +83,7 @@ public class GameManager {
 			
 			int userHealth = 5; // set the health for user 
 			
-			Battle battle = new Battle(player, enemy);// create battle instance that has two players 
+			Battle battle = new Battle(player.getDeck(), enemy.getDeck());// create battle instance that has two players 
 			
 			int result = battle.startBattle();// call battle method 
 			final int WIN = 1;
