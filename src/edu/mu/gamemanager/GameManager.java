@@ -140,7 +140,6 @@ public class GameManager {
 			}
 			
 		}
-		
 	
 		// start battle 
 				// iniside battle 
@@ -149,9 +148,6 @@ public class GameManager {
 				// take the two chosen cards and compare who ever card value is the highest wins
 				// loser loses a life and we repeat battle until someone has all of their life points out. 
 				// once winner  add level and add currency 
-	
-		
-		
 	}	
 	
 	/**

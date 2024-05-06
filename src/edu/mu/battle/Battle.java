@@ -8,6 +8,7 @@ import java.util.List;
 
 import edu.mu.card.Card;
 import edu.mu.deck.Deck;
+import edu.mu.item.Item;
 import edu.mu.players.PlayerOne;
 import edu.mu.players.PlayerTwo;
 
@@ -48,6 +49,7 @@ public class Battle {
 		
 		System.out.println("START OF BATTLE");
 			shuffleDecks();
+			
 			drawCards(7);
 			
 			while(player.checkPlayerHealth()  && enemy.checkPlayerHealth() ) {
@@ -82,6 +84,31 @@ public class Battle {
 		enemy.setHand(player.getDeck().pullCardsFromDeck(numcards));
 	}
 	
+	private void openBattleItemMenu() { 
+		boolean isInBattleItemMenu = false;
+		
+		if(player.getBattleItems().size() > 0) {
+			isInBattleItemMenu = true;
+		}
+		
+		while(isInBattleItemMenu) {
+			System.out.println("Select a battle item to use or enter " + player.getBattleItems().size() + " to exit:");
+			
+			try { 
+				int itemChoice = battleScanner.nextInt() - 1;
+				
+				if (itemChoice >= 0 && itemChoice < player.getBattleItems().size()) {
+					Item item = player.getBattleItems().get(itemChoice);
+					
+					item.applyEffect();
+				}
+				
+			} catch(NoSuchElementException e) {
+				System.out.println("Please enter a valid choice.");
+			}
+		}
+	}
+	
 	/**
 	 * Plays a round of the battle, where both players choose a card to play
 	 */
@@ -94,30 +121,31 @@ public class Battle {
 			System.out.print("Card " + (i + 1) + ": " + player.getHand().get(i).getValue() + "\n");
 		}
 		
-		boolean ValidInput = false;
-		while (!ValidInput) {	
-			System.out.print("choose a card to play: ");
+		openBattleItemMenu();
+		
+		boolean isInCardMenu = true;
+		while (isInCardMenu) {	
+			System.out.print("Choose a card to play: ");
 			
 			try {
 				int playerchoice = battleScanner.nextInt()-1;
 				
-				if ( playerchoice >= 0 && playerchoice <player.getHand().size())
+				if ( playerchoice >= 0 && playerchoice < player.getHand().size())
 				{
-					ValidInput = true;
+					isInCardMenu = false;
 			
 					Card playerCard = player.getHand().get(playerchoice);
-					player.getHand().remove(playerCard);
-					
-					
+
 					int enemychoice = random.nextInt(enemy.getHand().size());
 					Card enemyCard = enemy.getHand().get(enemychoice);
+					
+					player.getHand().remove(playerCard);
 					enemy.getHand().remove(enemyCard);
 					
+					compareCards(playerCard, enemyCard);
 					
 					System.out.println("Player plays card with value of: " + playerCard.getValue());
 					System.out.println("Enemy plays card with value of: "+ enemyCard.getValue());
-					
-					compareCards(playerCard, enemyCard);
 				
 				} else {
 					System.out.println("Invalid input please try again");

@@ -5,17 +5,20 @@ import java.util.ArrayList;
 import edu.mu.card.Card;
 import edu.mu.deck.Deck;
 import edu.mu.deck.UserDeck;
+import edu.mu.item.Item;
 
 /**
  * Represents Player One in the game
  * 
  * @author Dion Burns
+ * @author Albert Zhou
  */
 public class PlayerOne extends Player { //This is the character that you will play as
 	
 	private ArrayList<Card> hand;
 	private UserDeck deck;
 	private int health;
+	private ArrayList<Item> battleItems;
 	
 	/**
 	 * Constructs a new PlayerOne instance
@@ -24,6 +27,7 @@ public class PlayerOne extends Player { //This is the character that you will pl
 		deck = new UserDeck();
 		//hand = initHand();
 		health = 100;
+		battleItems = new ArrayList<Item>();
 	}
 
 	
@@ -51,6 +55,15 @@ public class PlayerOne extends Player { //This is the character that you will pl
 		Card cardToAdd = card.get(0);
 		hand.add(cardToAdd);
 	}
+	
+	/**
+	 * Adds a battle item to the player's current battle items
+	 * @param item The item to add
+	 */
+	public void addBattleItem(Item item) {
+		battleItems.add(item);
+	}
+	
 
 
 	@Override
@@ -102,5 +115,14 @@ public class PlayerOne extends Player { //This is the character that you will pl
 	public Deck getDeck() {
 		return deck;
 	}
-
+	
+	
+	/**
+	 * Gets the player's current battle items.
+	 * 
+	 * @return The battle items of the player.
+	 */
+	public ArrayList<Item> getBattleItems() {
+		return battleItems;
+	}
 }
