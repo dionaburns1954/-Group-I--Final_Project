@@ -18,6 +18,7 @@ import edu.mu.item.SingleCard;
  * @author Logan Bird
  * @author Ryan Esparza
  * @author Dion Burns
+ * @author Albert Zhou
  */
 public class shop {
 
@@ -36,19 +37,19 @@ public class shop {
 		currency = 0;
 		playerDeck = deck; //init to player's current deck to fix
 		//scan = new Scanner(System.in);
-	    Select_Displayed_Items();
+	    selectDisplayedItems();
 	    }//test
 	  
 	/**
 	 * Selects items to be displayed in the shop
 	 */
-	private void Select_Displayed_Items() {
+	private void selectDisplayedItems() {
 		displayedItems.clear();
 	  
-	  displayedItems.add(Get_Random_Single_Card());
-	  displayedItems.add(Get_Random_Single_Card());
-	  displayedItems.add(Get_Random_BoosterPack());
-	  displayedItems.add(Get_Random_BoosterPack());
+	  displayedItems.add(getRandomSingleCard());
+	  displayedItems.add(getRandomSingleCard());
+	  displayedItems.add(getRandomBoosterPack());
+	  displayedItems.add(getRandomBoosterPack());
 	  displayedItems.add(new DeleteCardItem("Delete Card", 10, playerDeck)); //change last param to not null
 	  displayedItems.add(new ResetShopItem("Reset Shop", 6, this));
 	  
@@ -60,7 +61,7 @@ public class shop {
 	 * 
 	 * @return A random booster pack item
 	 */
-	private Item Get_Random_BoosterPack() {
+	private Item getRandomBoosterPack() {
 		Random random = new Random();
 		int chance =random.nextInt(10);// generate random number between 0 and 9 
 		if ( chance <= 5){ 
@@ -77,7 +78,7 @@ public class shop {
 	 * 
 	 * @return A random value for a single card
 	 */
-	private int Get_Single_Card_Value() {
+	private int getSingleCardValue() {
 		Random random = new Random ();
 		int ra = random.nextInt(100);
 		
@@ -95,9 +96,9 @@ public class shop {
 	 * 
 	 * @return A random single card item
 	 */
-	private Item Get_Random_Single_Card() { 
+	private Item getRandomSingleCard() { 
 		
-		int value = Get_Single_Card_Value(); // generate random value between 1 and 10 
+		int value = getSingleCardValue(); // generate random value between 1 and 10 
 	  return new SingleCard("Card " + value, value/2, new int[] {value}) ;
 	   }
 	
@@ -105,16 +106,16 @@ public class shop {
 	/**
 	 * Opens the shop menu, allowing the player to interact with the shop
 	 */
-	public void Open_Shop_Menu() {
+	public void openShopMenu() {
 		Scanner scanner = new Scanner(System.in);
 		boolean exitShop = false;
 		
 		while ( !exitShop) {
 			System.out.println("Welcome to the Shop!");
-			Select_Displayed_Items();
+			selectDisplayedItems();
 			System.out.println(" Your Currency: $" + currency);
 			System.out.println("Available Items:");
-			Display_Items();
+			displayItems();
 			
 			boolean validInput = false;
 					while (!validInput) {
@@ -132,9 +133,7 @@ public class shop {
 								if ( itemNumber >= 0 && itemNumber < displayedItems.size()) {
 									Item selectedItem = displayedItems.get(itemNumber);
 									if ( currency >= selectedItem.getPrice()) {
-										Purchase_Item(selectedItem);
-										
-										
+										purchaseItem(selectedItem);
 										
 									}else {
 										System.out.println("Insufficient funds!");
@@ -154,7 +153,7 @@ public class shop {
 	/**
 	 * Displays items available in the shop
 	 */
-	private void Display_Items () {
+	private void displayItems () {
 		for (int i =0; i< displayedItems.size(); i++) { 
 			Item item = displayedItems.get(i);
 			System.out.println((i+1)+". " +item.getName() + " - Price: $" + item.getPrice());
@@ -166,13 +165,13 @@ public class shop {
 	 * 
 	 * @param item The item to purchase
 	 */
-	private void Purchase_Item (Item item) { 
+	private void purchaseItem (Item item) { 
 		item.applyEffect();
 		currency -= item.getPrice();
 		displayedItems.remove(item);
 	  System.out.println("You Purchased: " + item.getName());
 	  System.out.println("remaining Currency: $" + currency);
-	  System.out.println("remaining Items in shop"); Display_Items();
+	  System.out.println("remaining Items in shop"); displayItems();
 	  
 	  }
 	
@@ -181,7 +180,7 @@ public class shop {
 	 * 
 	 * @param amount The amount of currency to add
 	 */
-	public void Add_Currency(int amount) { 
+	public void addCurrency(int amount) { 
 		currency += amount;
 		}
 	  
@@ -189,7 +188,7 @@ public class shop {
 	 * Refreshes the shop by selecting new displayed items
 	 */
 	public void refreshShop() {
-		Select_Displayed_Items();
+		selectDisplayedItems();
 	}
 	
 	// getter?+
@@ -199,7 +198,7 @@ public class shop {
 	 * 
 	 * @return The current currency balance
 	 */
-	public int Get_Currency() {
+	public int getCurrency() {
 		return currency;
 	}
 	
@@ -208,7 +207,7 @@ public class shop {
 	 * 
 	 * @return The list of displayed items
 	 */
-	public List<Item> Get_Displayed_Items() {
+	public List<Item> getDisplayedItems() {
 		return displayedItems;
 		}
 }

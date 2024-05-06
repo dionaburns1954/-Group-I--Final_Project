@@ -30,8 +30,6 @@ public class PlayerOne extends Player { //This is the character that you will pl
 		battleItems = new ArrayList<Item>();
 	}
 
-	
-
 	@Override
 	public Card playCard(Card card) {
 		// TODO Auto-generated method stub
@@ -63,8 +61,6 @@ public class PlayerOne extends Player { //This is the character that you will pl
 	public void addBattleItem(Item item) {
 		battleItems.add(item);
 	}
-	
-
 
 	@Override
 	public ArrayList<Card> initHand() { //need to get rid of this because hand is being init in gameManager class

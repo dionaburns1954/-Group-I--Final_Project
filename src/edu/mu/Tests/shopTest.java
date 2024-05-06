@@ -25,10 +25,10 @@ class shopTest {
 	@Test
 	public void test_AddCurrency() {
 		
-		int Start_Currancy = Shop.Get_Currency();
+		int Start_Currancy = Shop.getCurrency();
 		int amount_to_add = 100;
-		Shop.Add_Currency(amount_to_add);
-		assertEquals(Start_Currancy + amount_to_add, Shop.Get_Currency());
+		Shop.addCurrency(amount_to_add);
+		assertEquals(Start_Currancy + amount_to_add, Shop.getCurrency());
 		
 	}
 
@@ -37,7 +37,7 @@ class shopTest {
 	
 	Shop.refreshShop();
 	
-	 List<Item> displayedItems = Shop.Get_Displayed_Items();
+	 List<Item> displayedItems = Shop.getDisplayedItems();
 	assertNotNull(displayedItems);
 	assertEquals(6,displayedItems.size());
 	}
@@ -46,11 +46,11 @@ class shopTest {
 	public void test_Refresh() { 
 		Shop.refreshShop(); // set initial displayed items 
 		
-		List<Item> initialDisplay = new ArrayList<>(Shop.Get_Displayed_Items());
+		List<Item> initialDisplay = new ArrayList<>(Shop.getDisplayedItems());
 		
 		Shop.refreshShop();
 		
-		List<Item> updatedDisplay = new ArrayList<>(Shop.Get_Displayed_Items());
+		List<Item> updatedDisplay = new ArrayList<>(Shop.getDisplayedItems());
 		
 		assertNotEquals(initialDisplay,updatedDisplay);
 		

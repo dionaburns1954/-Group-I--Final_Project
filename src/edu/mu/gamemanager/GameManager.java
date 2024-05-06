@@ -110,7 +110,7 @@ public class GameManager {
 		//user.Level(1);// set the users level to 1 
 		int userLevel = 1; // SET USER LEVEL LIKE THIS ???
 		
-		Shop.Add_Currency(10);// starting currency 
+		Shop.addCurrency(10);// starting currency 
 		
 		// if we want health to not reset inbetween battles then initilize it here BUT if we want it to reset then initilize it at beginning of loop 
 	
@@ -128,9 +128,9 @@ public class GameManager {
 			// do we want to update level and user money inside battle function or out here
 			if (result == true) {
 				userLevel++;
-				Shop.Add_Currency(50);
+				Shop.addCurrency(50);
 				
-				Shop.Open_Shop_Menu();// if win open shop and let user buy things for deck 
+				Shop.openShopMenu();// if win open shop and let user buy things for deck 
 				
 				//idk if we need logic if exit shop go back to begining of loop or not 
 			} 
