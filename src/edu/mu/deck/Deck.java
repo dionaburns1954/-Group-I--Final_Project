@@ -52,9 +52,6 @@ public class Deck {
 	 * @return True if the card is successfully removed, false otherwise
 	 */
 	public boolean deleteCard(Card card) {
-		//removes a certain card from the deck
-		//card that is to be removed are ones that have been pulled
-		//method returns true if card was successfully removed from deck, else returns false
 		try {
 			deck.remove(card);
 			for(int i = 0; i < deck.size(); i++) {
@@ -86,13 +83,6 @@ public class Deck {
 			deck.set(randCardIndex,  heldCard);
 		} 
 	}
-	
-	//private ArrayList<Card> cards;
-	
-	/*
-	 * public void deleteCard(Card card) { cards.remove(card);
-	 * System.out.println("Card deleted from deck."); }
-	 */
 	/**
 	 * Pulls a specified number of cards from the deck
 	 * 
@@ -100,12 +90,6 @@ public class Deck {
 	 * @return The pulled cards
 	 */
 	public  ArrayList<Card> pullCardsFromDeck(int num) {
-		/*
-		 * function takes in a num of cards representing
-		 * how many cards to pull from top of deck.
-		 * Method pulls num of cards from top of deck and deletes them
-		 * from arraylist. Method returns truee if successful, false if unsuccessful
-		 */
 		try {
 			
 			ArrayList<Card> returnCards = new ArrayList<Card>(); 
