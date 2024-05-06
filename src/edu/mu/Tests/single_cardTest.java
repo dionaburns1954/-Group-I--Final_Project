@@ -19,8 +19,5 @@ class single_cardTest {
         // Call the applyEffect method
         singleCard.applyEffect();
 
-        // Now, you can add assertions to verify the expected behavior of applyEffect
-        // For example, you might assert that the card's value has been set
-        // assertEquals(expectedValue, actualValue);
     }
 }

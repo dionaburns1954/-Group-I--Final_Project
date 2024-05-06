@@ -10,7 +10,6 @@ import edu.mu.players.PlayerTwo;
 
 public class Battle {
 	
-	
 	private PlayerOne playerDeck;
 	private PlayerTwo enemyDeck;
 	private ArrayList<Card> playerHand;
@@ -18,22 +17,23 @@ public class Battle {
 	private int playerHealth;
 	private int enemyHealth;
 	private final int DAMAGEAMOUNT = 33;
+	private PlayerOne player;
+	private PlayerTwo enemy;
 	
 	
 	
-	public Battle(PlayerOne PlayerDeck, PlayerTwo enemyDeck) {
-		this.playerDeck = PlayerDeck;
-		this.enemyDeck = enemyDeck;
-		this.playerHand = new ArrayList<>();
-		this.enemyHand = new ArrayList<>();
-		this.playerHealth = 3;
-		this.enemyHealth = 3;
+	public Battle(PlayerOne Player, PlayerTwo enemy) {
+		this.player = Player;
+		this.enemy = enemy;
+		
+		
+		
 		
 	}
 	
 	public int startBattle() {
 		
-		while(playerHealth > 0 && enemyHealth >0) {
+		while(player.checkPlayerHealth() != false && enemy.checkPlayerHealth() != false ) {
 			
 			shuffleDecks();
 			drawCards(3);
@@ -43,7 +43,7 @@ public class Battle {
 			System.out.println("\nEnd of round.");
 			
 		}
-		if(playerHealth <= 0) {
+		if(player.checkPlayerHealth() == false) {
 			return 2; // print out lose message 
 		} else {
 			return 1;// print out win message 
@@ -56,26 +56,34 @@ public class Battle {
 	}
 	
 	private void drawCards(int numcards) {
-		// draw cards to put into hand 
-		
+		player.setHand(player.getDeck().pullCardsFromDeck(numcards));
+		enemy.setHand(player.getDeck().pullCardsFromDeck(numcards));
 	}
 	private void playRound() {
 		Scanner scanner = new Scanner(System.in);
 		Random random = new Random();
 		
-		System.out.println("\nPlayer's hand: " + playerHand);
+		System.out.println("\nPlayer's hand: " + player.getHand());
 		
 		System.out.print("choose a card to play");
 		int player_choice = scanner.nextInt();
 		Card playerCard = playerHand.get(player_choice);
 		playerHand.remove(playerCard);
+		int playerchoice = scanner.nextInt();
+		Card playerCard = player.getHand().get(playerchoice);
+		player.getHand().remove(playerCard);
 		
-		// dp enemy but make the choice random 
+		scanner.close();
+		int enemychoice = random.nextInt(enemy.getHand().size());
+		Card enemyCard = enemy.getHand().get(enemychoice);
+		enemy.getHand().remove(enemyCard);
 		
-		// print out player card 
-		// print out enemy card
 		
-		// run compare
+		System.out.println("Player plays : " + playerCard);
+		System.out.println("Enemy plays : "+ enemyCard);
+		
+		compareCards(playerCard, enemyCard);
+		
 	}
 	
 	private void compareCards(Card playerCard, Card enemyCard) {
@@ -87,3 +95,5 @@ public class Battle {
 		else playerDeck.damagePlayer(DAMAGEAMOUNT);
 	}
 }
+
+
