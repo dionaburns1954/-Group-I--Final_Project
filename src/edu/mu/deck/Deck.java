@@ -76,4 +76,8 @@ public class Deck {
 	
 	
 	public ArrayList<Card> getCards() { return this.deck; }
+	
+	public void addCard(Card card) {
+		deck.add(card);
+	}
 }
