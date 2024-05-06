@@ -158,7 +158,6 @@ public class Shop {
 				}
 			}
 		}
-		
 	}
 	
 	/**
@@ -186,7 +185,8 @@ public class Shop {
 		displayedItems.remove(item);
 		System.out.println("You Purchased: " + item.getName());
 		System.out.println("remaining Currency: $" + currency);
-		System.out.println("remaining Items in shop"); displayItems();
+		System.out.println("remaining Items in shop"); 
+		displayItems();
 	}
 	
 	/**

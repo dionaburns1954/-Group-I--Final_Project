@@ -36,25 +36,23 @@ public class DeleteCardItem extends Item{
 	 */
 	@Override
 	public void applyEffect() {
-		try (Scanner scanner = new Scanner(System.in)) {
-			System.out.println("Select the card you want to delete:");
-			
-			ArrayList<Card> cards = deck.getCards();
-			for (int i = 0; i < cards.size(); i++) {
-				System.out.println((i + 1) + ". " + cards.get(i).getValue());
-			}
-			
-			int choice = scanner.nextInt();
-			if ((choice >= 1) && (choice <= cards.size())) {
-				deck.deleteCard(cards.get(choice - 1));
-			} else {
-				System.out.println("Invalid choice. No card was deleted");
-			}
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Select the card you want to delete:");
+		
+		ArrayList<Card> cards = deck.getCards();
+		for (int i = 0; i < cards.size(); i++) {
+			System.out.println((i + 1) + ". " + cards.get(i).getValue());
+		}
+		
+		int choice = scanner.nextInt();
+		if ((choice >= 1) && (choice <= cards.size())) {
+			deck.deleteCard(cards.get(choice - 1));
+		} else {
+			System.out.println("Invalid choice. No card was deleted");
 		}
 		//replace deleted card with new one
 		Random rand = new Random();
 		deck.addCard(new Card(rand.nextInt(99) + 1));
-		//scanner.close();
 	}
 
 }

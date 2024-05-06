@@ -1,5 +1,6 @@
 package edu.mu.battle;
 
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.Scanner;
@@ -52,7 +53,7 @@ public class Battle {
 			playRound();
 			
 			System.out.println("\nEnd of round.");
-			System.out.println("enemy health = " + enemy.checkPlayerHealth());
+			System.out.println("Enemy health = " + enemy.getHealth() + " HP");
 		}
 			
 		if(!player.checkPlayerHealth()) {
@@ -80,17 +81,19 @@ public class Battle {
 		enemy.setHand(player.getDeck().pullCardsFromDeck(numcards));
 	}
 	
+
 	private void openBattleItemMenu() { 
+		ArrayList<Item> playerBattleItems = player.getBattleItems();
 		boolean isInBattleItemMenu = false;
 		
-		if(player.getBattleItems().size() > 0) {
+		if(playerBattleItems.size() > 0) {
 			isInBattleItemMenu = true;
 		}
 		
 		while(isInBattleItemMenu) {
 			System.out.println("\nBattle items available to you: ");
 			int i = 0;
-			for(Item item : player.getBattleItems()) {
+			for(Item item : playerBattleItems) {
 				i++;
 				System.out.println(i + ": " + item.getName());
 			}
@@ -100,16 +103,16 @@ public class Battle {
 			try { 
 				int itemChoice = battleScanner.nextInt() - 1;
 				
-				if (itemChoice >= 0 && itemChoice < player.getBattleItems().size()) {
-					Item item = player.getBattleItems().get(itemChoice);
+				if (itemChoice >= 0 && itemChoice < playerBattleItems.size()) {
+					Item item = playerBattleItems.get(itemChoice);
 					item.applyEffect();
 					player.getBattleItems().remove(item);
 					
-					if(player.getBattleItems().size() == 0) {
+					if(playerBattleItems.size() == 0) {
 						isInBattleItemMenu = false;
 						displayPlayerHand();
 					}
-				} else if (itemChoice == player.getBattleItems().size()) {
+				} else if (itemChoice == playerBattleItems.size()) {
 					displayPlayerHand();
 					isInBattleItemMenu = false;
 				} else {
@@ -189,7 +192,7 @@ public class Battle {
 		// else it is a tie 
 		boolean playerCardLarger = (playerCard.getValue() >= enemyCard.getValue()) ? true : false;
 		if(playerCardLarger) {
-			System.out.println("\nenemy took damage");
+			System.out.println("\nEnemy took damage");
 			enemy.damagePlayer(damageAmount);}
 		else { 
 			System.out.println("\nYOU took damage");
