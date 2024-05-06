@@ -18,9 +18,11 @@ public class PlayerOne extends Player { //This is the character that you will pl
 	private ArrayList<Card> hand;
 	private UserDeck deck;
 	private int health;
+	private static PlayerOne instance = null;
+
 	private ArrayList<Item> battleItems;
 	
-	private static PlayerOne instance = null;
+
 	
 	/**
 	 * Constructs a new PlayerOne instance
@@ -91,6 +93,10 @@ public class PlayerOne extends Player { //This is the character that you will pl
 		
 		return true;
 	}
+	
+	public int getHealth() {
+		return health;
+	}
 
 
 
@@ -98,6 +104,10 @@ public class PlayerOne extends Player { //This is the character that you will pl
 	public void damagePlayer(int num) {
 		health = health - num;
 		
+	}
+	
+	public void addHealth(int hp) { 
+		health += hp;
 	}
 	/**
 	 * Sets the hand of the player
