@@ -37,7 +37,7 @@ public class Battle {
 			System.out.println("\nEnd of round.");
 			
 		}
-		if(player.checkPlayerHealth() = false) {
+		if(player.checkPlayerHealth() == false) {
 			return 2; // print out lose message 
 		} else {
 			return 1;// print out win message 
@@ -61,15 +61,20 @@ public class Battle {
 		
 		System.out.print("choose a card to play");
 		int playerchoice = scanner.nextInt();
-		Card playerCard = player.get(playerChoice);
-		playerHand.remove(playerCard);
+		Card playerCard = player.getHand().get(playerchoice);
+		player.getHand().remove(playerCard);
 		
-		// dp enemy but make the choice random 
+		scanner.close();
+		int enemychoice = random.nextInt(enemy.getHand().size());
+		Card enemyCard = enemy.getHand().get(enemychoice);
+		enemy.getHand().remove(enemyCard);
 		
-		// print out player card 
-		// print out enemy card
 		
-		// run compare
+		System.out.println("Player plays : " + playerCard);
+		System.out.println("Enemy plays : "+ enemyCard);
+		
+		compareCards(playerCard, enemyCard);
+		
 	}
 	
 	private void compareCards( Card playerCard, Card enemyCard) {
