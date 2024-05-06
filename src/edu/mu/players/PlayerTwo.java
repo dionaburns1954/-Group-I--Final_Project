@@ -93,6 +93,9 @@ public class PlayerTwo extends Player{
 		return true;
 	}
 
+	public int getHealth() {
+		return health;
+	}
 
 	@Override
 	public void damagePlayer(int num) {
