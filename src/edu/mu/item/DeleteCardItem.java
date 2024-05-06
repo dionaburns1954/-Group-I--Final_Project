@@ -4,13 +4,33 @@ import java.util.Scanner;
 import edu.mu.deck.Deck;
 import edu.mu.card.Card;
 
+/**
+ * Class that allows the player to delete a card from their deck
+ * 
+ * @author Ryan Esparza
+ * @version 1.0
+ */
+
 public class DeleteCardItem extends Item{
 	private Deck deck;
+	
+	/**
+	 * 
+	 * @param name The name of the delete card item
+	 * @param price The price of the delete card item
+	 * @param deck The player's deck
+	 */
 	public DeleteCardItem(String name, int price, Deck deck) {
 		super(name, price);
 		this.deck = deck;
 	}
 	
+	/**
+	 * Applies the effect of the delete card item by allowing the player to choose a card from their deck to delete
+	 * The player selects a card by its index in the deck, and it is removed if a valid choice is made
+	 * 
+	 * @message A message indicating the success or failure of the operation
+	 */
 	@Override
 	public void applyEffect() {
 		Scanner scanner = new Scanner(System.in);
