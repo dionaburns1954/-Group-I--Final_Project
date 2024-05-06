@@ -14,17 +14,12 @@ public abstract class Player {
 
 	//ArrayList<Card> hand;
 	
-<<<<<<< HEAD
-	public abstract Card playCard(Card card);
-=======
 	/**
 	 * Plays the specified card
 	 * 
 	 * @param card The card to play
 	 */
-	public abstract void playCard(Card card);
->>>>>>> branch 'main' of git@github.com:dionaburns1954/-Group-I--Final_Project.git
-	
+	public abstract Card playCard(Card card);
 	/**
 	 * Removes the specified card from the player's hand
 	 * 
