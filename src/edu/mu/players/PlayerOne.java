@@ -21,10 +21,12 @@ public class PlayerOne extends Player { //This is the character that you will pl
 	
 
 	@Override
-	public void playCard(Card card) {
+	public Card playCard(Card card) {
 		// TODO Auto-generated method stub
 		System.out.println("Played card " + card);
+		Card playedCard = card;
 		removeCard(card);
+		return playedCard;
 		
 	}
 

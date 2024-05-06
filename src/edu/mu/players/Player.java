@@ -8,7 +8,7 @@ public abstract class Player {
 
 	//ArrayList<Card> hand;
 	
-	public abstract void playCard(Card card);
+	public abstract Card playCard(Card card);
 	
 	public abstract void removeCard(Card card); //might change later
 	
