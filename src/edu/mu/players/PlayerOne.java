@@ -6,12 +6,20 @@ import edu.mu.card.Card;
 import edu.mu.deck.Deck;
 import edu.mu.deck.UserDeck;
 
+/**
+ * Represents Player One in the game
+ * 
+ * @author Dion Burns
+ */
 public class PlayerOne extends Player { //This is the character that you will play as
 	
 	private ArrayList<Card> hand;
 	private UserDeck deck;
 	private int health;
 	
+	/**
+	 * Constructs a new PlayerOne instance
+	 */
 	public PlayerOne() {
 		deck = new UserDeck();
 		//hand = initHand();
@@ -66,15 +74,29 @@ public class PlayerOne extends Player { //This is the character that you will pl
 		health = health - num;
 		
 	}
-	
+	/**
+	 * Sets the hand of the player
+	 * 
+	 * @param cards The cards to set as the hand
+	 */
 	public void setHand(ArrayList<Card> cards) {
 		hand = cards;
 	}
 	
+	/**
+	 * Gets the hand of the player
+	 * 
+	 * @return The hand of the player
+	 */
 	public ArrayList<Card> getHand() {
 		return hand;
 	}
 	
+	/**
+	 * Gets the deck of the player
+	 * 
+	 * @return The deck of the player
+	 */
 	public Deck getDeck() {
 		return deck;
 	}
