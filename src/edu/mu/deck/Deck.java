@@ -55,12 +55,17 @@ public class Deck {
 		//removes a certain card from the deck
 		//card that is to be removed are ones that have been pulled
 		//method returns true if card was successfully removed from deck, else returns false
-		deck.remove(card);
-		for(int i = 0; i < deck.size(); i++) {
-			if(deck.get(i) == card)
-				return false;
+		try {
+			deck.remove(card);
+			for(int i = 0; i < deck.size(); i++) {
+				if(deck.get(i) == card)
+					return false;
+			}
+			return true;
+		} catch(Exception e) {
+			System.out.println("ERROR! Could delete Card from deck!");
+			return false;
 		}
-		return true;
 	}
 	
 	/**
@@ -101,22 +106,28 @@ public class Deck {
 		 * Method pulls num of cards from top of deck and deletes them
 		 * from arraylist. Method returns truee if successful, false if unsuccessful
 		 */
-		ArrayList<Card> returnCards = new ArrayList<Card>(); 
+		try {
+			
+			ArrayList<Card> returnCards = new ArrayList<Card>(); 
 		
-		int deckIndex = 0;
-		for(int i = 0; i < num; i++) {
-			returnCards.add(deck.get(deckIndex)); //pops first card off deck and adds it to returnDeck
-			deleteCard(deck.get(deckIndex)); //removes popped card from deck
-		}
+			int deckIndex = 0;
+			for(int i = 0; i < num; i++) {
+				returnCards.add(deck.get(deckIndex)); //pops first card off deck and adds it to returnDeck
+				deleteCard(deck.get(deckIndex)); //removes popped card from deck
+			}
 		
-		//replace cards that were pulled with new ones
-		Random rand = new Random();
-		for(int i = 0; i < num; i++) {
-			int value = rand.nextInt(99) + 1;
-			Card card = new Card(value);
-			deck.add(card);
+			//replace cards that were pulled with new ones
+			Random rand = new Random();
+			for(int i = 0; i < num; i++) {
+				int value = rand.nextInt(99) + 1;
+				Card card = new Card(value);
+				deck.add(card);
+			}
+				return returnCards;
+		} catch(Exception e) {
+			System.out.println("ERROR! could not pull cards!");
+			return null;
 		}
-		return returnCards;
 	}
 	
 	/**
