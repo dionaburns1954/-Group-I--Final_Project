@@ -13,7 +13,7 @@ import edu.mu.card.Card;
 
 public class DeleteCardItem extends Item{
 	private Deck deck;
-	private Scanner scanner;
+	//private Scanner scanner;
 	
 	/**
 	 * 
@@ -21,10 +21,10 @@ public class DeleteCardItem extends Item{
 	 * @param price The price of the delete card item
 	 * @param deck The player's deck
 	 */
-	public DeleteCardItem(String name, int price, Deck deck, Scanner scanner) {
+	public DeleteCardItem(String name, int price, Deck deck) {
 		super(name, price);
 		this.deck = deck;
-		this.scanner = scanner;
+		//this.scanner = scanner;
 	}
 	
 	/**
@@ -35,7 +35,7 @@ public class DeleteCardItem extends Item{
 	 */
 	@Override
 	public void applyEffect() {
-		//Scanner scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Select the card you want to delete:");
 		
 		ArrayList<Card> cards = deck.getCards();

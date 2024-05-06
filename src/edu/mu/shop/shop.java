@@ -24,7 +24,7 @@ public class shop {
 	private List<Item> displayedItems; 
 	private int currency;
 	private Deck playerDeck;
-	private Scanner scan;
+	//private Scanner scan;
 	  
 	  
 	/**
@@ -35,28 +35,25 @@ public class shop {
 		displayedItems = new ArrayList<>();
 		currency = 0;
 		playerDeck = deck; //init to player's current deck to fix
-		scan = new Scanner(System.in);
-	    Select_Displayed_Items(scan);
+		//scan = new Scanner(System.in);
+	    Select_Displayed_Items();
 	    }//test
 	  
 	/**
 	 * Selects items to be displayed in the shop
 	 */
-	private void Select_Displayed_Items(Scanner scan) {
+	private void Select_Displayed_Items() {
 		displayedItems.clear();
 	  
 	  displayedItems.add(Get_Random_Single_Card());
 	  displayedItems.add(Get_Random_Single_Card());
 	  displayedItems.add(Get_Random_BoosterPack());
 	  displayedItems.add(Get_Random_BoosterPack());
-	  displayedItems.add(new DeleteCardItem("Delete Card", 10, playerDeck, scan)); //change last param to not null
+	  displayedItems.add(new DeleteCardItem("Delete Card", 10, playerDeck)); //change last param to not null
 	  displayedItems.add(new ResetShopItem("Reset Shop", 6, this));
 	  
 	  
 	  }
-	private void closeScanner() {
-		scan.close();
-	}
 	
 	/**
 	 * Generates a random booster pack item
@@ -109,12 +106,12 @@ public class shop {
 	 * Opens the shop menu, allowing the player to interact with the shop
 	 */
 	public void Open_Shop_Menu() {
-		//Scanner scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		boolean exitShop = false;
 		
 		while ( !exitShop) {
 			System.out.println("Welcome to the Shop!");
-			Select_Displayed_Items(scan);
+			Select_Displayed_Items();
 			System.out.println(" Your Currency: $" + currency);
 			System.out.println("Available Items:");
 			Display_Items();
@@ -123,7 +120,7 @@ public class shop {
 					while (!validInput) {
 						System.out.println("Enter the number of the item you wish to purchase OR 'exit' to leave the shop:");
 						
-						String input = scan.next();
+						String input = scanner.next();
 						
 						if ( input.equalsIgnoreCase("exit")) {
 							System.out.println("Exiting the Shop");
@@ -192,7 +189,7 @@ public class shop {
 	 * Refreshes the shop by selecting new displayed items
 	 */
 	public void refreshShop() {
-		Select_Displayed_Items(scan);
+		Select_Displayed_Items();
 	}
 	
 	// getter?+
