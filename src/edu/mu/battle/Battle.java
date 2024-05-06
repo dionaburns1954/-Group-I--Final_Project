@@ -13,6 +13,7 @@ public class Battle {
 	private ArrayList<Card> enemyHand;
 	private int playerHealth;
 	private int enemyHealth;
+	private final int DAMAGEAMOUNT = 33;
 	
 	
 	
@@ -73,9 +74,12 @@ public class Battle {
 		// run compare
 	}
 	
-	private void compareCards( Card playerCard, Card enemyCard) {
+	private void compareCards(Card playerCard, Card enemyCard) {
 		// if player card.getvalue is greater then take health away from enemy
 		// else if enemy card is greater than take health away from player 
 		// else it is a tie 
+		boolean playerCardLarger = (playerCard.getValue() >= enemyCard.getValue()) ? true : false;
+		if(playerCardLarger) enemy.damagePlayer(DAMAGEAMOUNT);
+		else player.damagePlayer(DAMAGEAMOUNT);
 	}
 }
