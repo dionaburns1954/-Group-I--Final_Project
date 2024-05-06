@@ -83,7 +83,7 @@ public class Battle {
 		// else if enemy card is greater than take health away from player 
 		// else it is a tie 
 		boolean playerCardLarger = (playerCard.getValue() >= enemyCard.getValue()) ? true : false;
-		if(playerCardLarger) enemy.damagePlayer(DAMAGEAMOUNT);
-		else player.damagePlayer(DAMAGEAMOUNT);
+		if(playerCardLarger) enemyDeck.damagePlayer(DAMAGEAMOUNT);
+		else playerDeck.damagePlayer(DAMAGEAMOUNT);
 	}
 }
