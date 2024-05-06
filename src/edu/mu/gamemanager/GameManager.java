@@ -10,6 +10,8 @@ import edu.mu.shop.shop;
 
 public class GameManager {
 	
+	private static GameManager instance;
+	
 	private final PlayerOne player = new PlayerOne();
 	private PlayerTwo enemy;
 	private int enemyLvl = 1; //can be changed
@@ -31,6 +33,10 @@ public class GameManager {
 		
 		return true;
 		
+	}
+	
+	public Deck getPlayerDeck() {
+		return player.getDeck();
 	}
 	
 	private boolean checkPlayerOneHealth() {
@@ -110,4 +116,11 @@ public class GameManager {
 		
 		
 	}	
+	
+	public static GameManager getInstance() {
+		if (instance == null) {
+			instance = new GameManager();
+		}
+		return instance;
+	}
 }
