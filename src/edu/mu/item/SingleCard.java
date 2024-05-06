@@ -2,6 +2,10 @@ package edu.mu.item;
 
 import java.util.Random;
 
+import edu.mu.card.Card;
+import edu.mu.deck.Deck;
+import edu.mu.gamemanager.GameManager;
+
 public class SingleCard extends Item {
     private int[] possibleValues;
     private int currentValue;
@@ -9,7 +13,6 @@ public class SingleCard extends Item {
     public SingleCard(String name, int price, int[] possibleValues) {
         super(name, price);
         this.possibleValues = possibleValues;
-        applyEffect(); // Initialize to invalid value
     }
 
     @Override
@@ -18,6 +21,7 @@ public class SingleCard extends Item {
             currentValue = getRandomValueFromPossibleValues();
         }
         // Here you can add logic for adding the card to the player's deck
+    	GameManager.getInstance().getPlayerDeck().addCard(new Card(currentValue));
     }
     
     private int getRandomValueFromPossibleValues() {
