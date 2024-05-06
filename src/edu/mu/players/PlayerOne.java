@@ -20,14 +20,28 @@ public class PlayerOne extends Player { //This is the character that you will pl
 	private int health;
 	private ArrayList<Item> battleItems;
 	
+	private static PlayerOne instance = null;
+	
 	/**
 	 * Constructs a new PlayerOne instance
 	 */
-	public PlayerOne() {
+	private PlayerOne() {
 		deck = new UserDeck();
 		//hand = initHand();
 		health = 100;
 		battleItems = new ArrayList<Item>();
+	}
+
+	/**
+	 * Gets the current instance of the player
+	 * 
+	 * @return the instance of the player
+	 */
+	public static PlayerOne getPlayer() {
+		if(instance == null) {
+			instance = new PlayerOne();
+		}
+		return instance;
 	}
 
 	@Override
