@@ -58,7 +58,11 @@ public class Battle {
  		// this method compares the values of the two cards if the player card is higher then the enemy will lose health else it is flipped and the user will lose health 
 		
 ## CARD class
-// enter card class methods 
+Global Varialables
+* value : Numbered value of card
+Methods
+* setValue(int value) : sets the card's value to a certain value
+* getValue() : returns the card's current value
 
 ## DECK Class
 * EnemyDeck
