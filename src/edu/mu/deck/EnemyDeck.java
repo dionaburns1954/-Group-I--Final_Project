@@ -6,46 +6,45 @@ import java.util.Random;
 import edu.mu.card.Card;
 
 /**
- * Represents an enemy deck in the game, containing cards used by opponent
+ * Represents an enemy deck in the game, containing cards used by opponent.
  * 
  * @author Logan Bird
  * @author Dion Burns
  */
 public class EnemyDeck extends Deck {
 	/**
-	 * Constructs an EnemyDeck object with the specified level
+	 * Constructs an EnemyDeck object with the specified level.
 	 * 
 	 * @param level The level of the enemy deck
 	 */
 	public EnemyDeck(int level) {
-	
-	deck = new ArrayList<Card>();
+		deck = new ArrayList<Card>();
 		initializeDeck(level);
 	}
 	
 	/**
-	 * Initializes the deck based on the specified level
+	 * Initializes the deck based on the specified level.
 	 * 
 	 * @param level The level of the enemy deck
 	 */
 	protected void initializeDeck(int level) {
 		if ( level == 1) {
-			Deck_1();
+			deckLevel1();
 			
 		}else if (level == 2) {
-			Deck_2();
+			deckLevel2();
 			
 		} else if (level == 3) {
-			Deck_3();
+			deckLevel3();
 			
 		}else if (level == 4) {
-			Deck_4();
+			deckLevel4();
 			
 		}else if (level == 5) {
-			Deck_5();
+			deckLevel5();
 			
 		}else {
-			Deck_above5(level);
+			deckLevel5Plus(level);
 			
 		}
 	}
@@ -53,31 +52,31 @@ public class EnemyDeck extends Deck {
 	/**
 	 * Adds cards to the deck for level 1
 	 */
-	private void Deck_1() {
+	private void deckLevel1() {
 		createDeck(0, 20);
 	}
 	/**
 	 * Adds cards to the deck for level 2
 	 */
-	private void Deck_2() {
+	private void deckLevel2() {
 		createDeck(20, 40);
 	}
 	/**
 	 * Adds cards to the deck for level 3
 	 */
-	private void Deck_3() {
+	private void deckLevel3() {
 		createDeck(40, 60);
 	}
 	/**
 	 * Adds cards to the deck for level 4
 	 */
-	private void Deck_4() {
+	private void deckLevel4() {
 		createDeck(60, 80);
 	}
 	/**
 	 * Adds cards to the deck for level 5
 	 */
-	private void Deck_5() {
+	private void deckLevel5() {
 		createDeck(60, 80);
 	}
 	/**
@@ -85,8 +84,8 @@ public class EnemyDeck extends Deck {
 	 * 
 	 * @param level The level of the enemy decks
 	 */
-	private void Deck_above5(int level) {
-		Deck_5();
+	private void deckLevel5Plus(int level) {
+		deckLevel5();
 		for(Card card : deck) {
 			card.setValue(card.getValue()+level );
 		}
