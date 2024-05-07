@@ -208,4 +208,17 @@ PlayerTwo
  I do not think we would need test here
 
 ## GAME MANAGER / MAIN 
-SHOW those two together here 
+* Global Variables
+  - private static GameManager instance;
+  - private final PlayerOne player
+  - private Shop shop
+  - private PlayerTwo enemy;
+  - private final int handNum
+* Methods
+  - public boolean giveHand() : inits player and enemy's hand. Returns true if initialization was successful, otherwise returns false
+  - public Deck getPlayerDeck() : returns the player's deck
+  - private boolean checkPlayerOneHealth() : checks if player's health is greater than or equal to zero. Returns true if it is, otherwise returns false
+  - private boolean checkPlayerTwoHealth() : check if enemy's health is greather than or equal to zero. Returns true if it is, otherwise returns false
+  - private void displayPlayerHand(PlayerOne player) : prints out the player's current hand
+  - public void start() : Starts the game loop
+  - public static GameManager getInstance() : returns instance. If instance is null, a new instance is created and returned
