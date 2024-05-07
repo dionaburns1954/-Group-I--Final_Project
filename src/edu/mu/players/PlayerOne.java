@@ -8,12 +8,16 @@ import edu.mu.deck.UserDeck;
 import edu.mu.item.Item;
 
 /**
- * Represents Player One in the game
+ * Represents Player One in the game. This is the character that the player will play as.
+ * 
+ * @version 1.0
+ * 
+ * @see Player
  * 
  * @author Dion Burns
  * @author Albert Zhou
  */
-public class PlayerOne extends Player { //This is the character that you will play as
+public class PlayerOne extends Player {
 	
 	/**
 	 * The cards that the player has available to play during {@link edu.mu.battle.Battle}
@@ -25,6 +29,10 @@ public class PlayerOne extends Player { //This is the character that you will pl
 	 */
 	private UserDeck deck;
 	private int health;
+	
+	/**
+	 * The current instance of the player.
+	 */
 	private static PlayerOne instance = null;
 
 	private ArrayList<Item> battleItems;
@@ -32,7 +40,7 @@ public class PlayerOne extends Player { //This is the character that you will pl
 
 	
 	/**
-	 * Constructs a new PlayerOne instance
+	 * Constructs a new PlayerOne instance.
 	 */
 	public PlayerOne() {
 		deck = new UserDeck();
@@ -42,7 +50,8 @@ public class PlayerOne extends Player { //This is the character that you will pl
 	}
 
 	/**
-	 * Gets the current instance of the player
+	 * Gets the current instance of the player. If there is not a current instance,
+	 * one is created instead.
 	 * 
 	 * @return the instance of the player
 	 */
@@ -55,7 +64,7 @@ public class PlayerOne extends Player { //This is the character that you will pl
 
 	@Override
 	public Card playCard(Card card) {
-		// TODO Auto-generated method stub
+		// Play the card and remove it from the current hand.
 		System.out.println("Played card " + card);
 		Card playedCard = card;
 		removeCard(card);
@@ -65,14 +74,13 @@ public class PlayerOne extends Player { //This is the character that you will pl
 
 	@Override
 	public void removeCard(Card card) {
-		// TODO Auto-generated method stub
+		// Remove the card from the hand.
 		hand.remove(card);
-		
 	}
 
 	@Override
 	public void addCardToHand(ArrayList<Card> card) {
-		// TODO Auto-generated method stub
+		// Add a card from the hand into the deck.
 		Card cardToAdd = card.get(0);
 		hand.add(cardToAdd);
 	}
@@ -83,13 +91,6 @@ public class PlayerOne extends Player { //This is the character that you will pl
 	 */
 	public void addBattleItem(Item item) {
 		battleItems.add(item);
-	}
-
-	@Override
-	public ArrayList<Card> initHand() { //need to get rid of this because hand is being init in gameManager class
-		// TODO Auto-generated method stub
-		//take from deck and pull some amount of cards
-		return null;
 	}
 
 

@@ -78,14 +78,6 @@ public class PlayerTwo extends Player{
 		hand.add(cardToAdd);
 	}
 
-
-	@Override
-	public ArrayList<Card> initHand() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
 	@Override
 	public boolean checkPlayerHealth() {
 		if(health <= 0) return false;
