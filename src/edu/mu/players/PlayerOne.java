@@ -19,6 +19,10 @@ public class PlayerOne extends Player { //This is the character that you will pl
 	 * The cards that the player has available to play during {@link edu.mu.battle.Battle}
 	 */
 	private ArrayList<Card> hand;
+	
+	/**
+	 * The player's current deck.
+	 */
 	private UserDeck deck;
 	private int health;
 	private static PlayerOne instance = null;
