@@ -8,14 +8,10 @@ import edu.mu.card.Card;
 /**
  * {@link Item} that allows the player to delete a card from their deck.
  * 
- * @version
- * 
- * @see Item
- * 
- * @author Ryan Esparza
  * @version 1.0
+ * @see Item
+ * @author Ryan Esparza
  */
-
 public class DeleteCardItem extends Item{
 	/**
 	 * The player's deck.
