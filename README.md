@@ -121,6 +121,13 @@ THERE ARE A LOT OF DIFFERENT ITEMS SO GO THROUGH AND LIST EM ALL
 	// this gets a random SingleCard Value to assign to a new Single Card
 		
 * ItemType()
+- public String getName()
+
+	// this gets the name of the item
+- public int getPrice()
+
+	// this gets the price of the Item
+
 * PeekCardItem()
 - public void applyEffect()
 
