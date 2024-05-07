@@ -124,7 +124,42 @@ THERE ARE A LOT OF DIFFERENT ITEMS SO GO THROUGH AND LIST EM ALL
 * PeekCardItem()
 * ResetShopItem()
 * SingleCard()
+- public void applyEffect()
+
+	// this method takes the single card and add it to the users deck
+
+- private int getRandomValueFromPossibleValues()
+
+	// this method gets a random value.
+
+- public int getCurrentValue()
+
+	// this gets the current value for the card
+
+- public String getName()
+
+	// this gets the name of the card
+
+- public int getValue()
+
+	// this gets the current value for the card
+
+- public void resetValue()
+
+	// this resets the value to 0
+
+- public void setCurrentValue(int value)
+
+	// this sets the card value to whatever is inputed
+
+- public SingleCard duplicate()
+
+	// this duplicates the single card
+
 * SwapCardItem()
+- public void applyEffect()
+
+	// this item lets the user choose a card from their hand that they would want to swap with the enemys hand.
 
 ## PLAYERS 
 PlayerOne
