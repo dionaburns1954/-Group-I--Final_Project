@@ -6,15 +6,26 @@ import edu.mu.players.PlayerOne;
 import edu.mu.shop.Shop;
 
 /**
- * Represents an enemy deck in the game, containing cards used by opponent
+ * A factory for creating both battle items and normal items.
+ * 
+ * @version 1.0
+ * 
+ * @see Item
  * 
  * @author Albert Zhou
+ * @author Logan Bird
  */
 public class ItemFactory {
 	
+	/**
+	 * Creates an item of the specified type.
+	 * @param itemType The type of item to create.
+	 * @return The item created.
+	 */
 	public Item getItem(ItemType itemType) {
 		Item item = null;
 		
+		// Determine what type of item needs to be created and assign it to item
 		switch(itemType) {
 		case DELETE:
 			item = new DeleteCardItem("Delete Card", 10, PlayerOne.getPlayer().getDeck());
@@ -25,17 +36,6 @@ public class ItemFactory {
 		case RESET_SHOP:
 			item = new ResetShopItem("Reset Shop", 6, Shop.getInstance());
 			break;
-		default:
-			break;
-		}
-		
-		return item;
-	}
-	
-	public Item getBattleItem(ItemType itemType) {
-		Item item = null;
-			
-		switch(itemType) {
 		case HEAL:
 			int hp = getRandomHPValue();
 			item = new HealItem("Heal " + hp + " HP", hp);
@@ -49,11 +49,12 @@ public class ItemFactory {
 		default:
 			break;
 		}
+		
 		return item;
 	}
 	
 	/**
-	 * Generates a random single card item
+	 * Generates a random single card item.
 	 * 
 	 * @return A random single card item
 	 */
@@ -63,6 +64,13 @@ public class ItemFactory {
 		return new SingleCard("Card " + value, value/2, new int[] {value}) ;
 	}
 	
+	/**
+	 * Generates a random HP value for the HealItem item.
+	 * 
+	 * @see HealItem
+	 * 
+	 * @return The HP to restore.
+	 */
 	private int getRandomHPValue() {
 		Random rand = new Random();
 		
@@ -72,7 +80,7 @@ public class ItemFactory {
 	}
 	
 	/**
-	 * Generates a random value for a single card
+	 * Generates a random value for a single card.
 	 * 
 	 * @return A random value for a single card
 	 */

@@ -77,13 +77,13 @@ public class Shop {
 		
 		switch (itemToGenerate) {
 		case 0:
-			item = itemFactory.getBattleItem(ItemType.HEAL);
+			item = itemFactory.getItem(ItemType.HEAL);
 			break;
 		case 1:
-			item = itemFactory.getBattleItem(ItemType.PEEK_CARD);
+			item = itemFactory.getItem(ItemType.PEEK_CARD);
 			break;
 		case 2:
-			item = itemFactory.getBattleItem(ItemType.SWAP_CARD);
+			item = itemFactory.getItem(ItemType.SWAP_CARD);
 			break;
 		}
 		
