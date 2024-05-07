@@ -61,7 +61,15 @@ public class Battle {
 // enter card class methods 
 
 ## DECK Class
-* enemy deck ( enter enemy deck)
+* EnemyDeck
+  - protected initializeDeck(int level) : initializes a deck of a certain level
+  - private void Deck_1() : initializes deck of level 1
+  - private void Deck_2() : initializes deck of level 2
+  - private void Deck_3() : initializes deck of level 3
+  - private void Deck_4() : initializes deck of level 4
+  - private void Deck_5() : initializes deck of level 5
+  - private void Deck_above5(int level) : Initializes a deck with level higher than 5
+  - private boolean createDeck(int min, int max) : Adds cards with values ranging between a min and max to deck
 * userDeck ( enter user Deck)
   // enter deck class methods
 
