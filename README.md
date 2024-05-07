@@ -2,7 +2,7 @@
 This is a game like war.
 
 ## Description
-This program is a game called a game like war. This game is a card game where the user is given a initial deck and he battles enemy decks by comparing values of cards, as he beats more and more enemies the users goal is to see how long they can last battling harder and harder enemy decks. To run this program, just copy the repository and run the "Main" file
+This program is a game called a game like war. This game is a card game where the user is given a initial deck and he battles enemy decks by comparing values of cards, as he beats more and more enemies the users goal is to see how long they can last battling harder and harder enemy decks. To run this program, just copy the repository and run the "Main" file.
 
 ## GAME PLAY 
 The game play consists of 2 main stages Battle and Shop. the battle is the combat of the game and the Shop is the deck building proccess of the game.
