@@ -65,7 +65,7 @@ public class Battle {
 		
 ## CARD class
 * Global Varialables
- - value : Numbered value of card
+  - value : Numbered value of card
 * Methods
   - setValue(int value) : sets the card's value to a certain value
   - getValue() : returns the card's current value
