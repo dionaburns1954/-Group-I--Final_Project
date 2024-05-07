@@ -7,44 +7,55 @@ import edu.mu.deck.Deck;
 import edu.mu.deck.EnemyDeck;
 
 /**
- * Represents Player Two in the game
+ * Represents Player Two in the game. This player represents the AI that the player will play against.
+ * 
+ * @version 1.0
+ * 
+ * @see Player
  * 
  * @author Dion Burns
  */
 public class PlayerTwo extends Player{
 
+	/**
+	 * The cards that the player has available to play during {@link edu.mu.battle.Battle}.
+	 */
 	private ArrayList<Card> hand;
+	/**
+	 * The player's current deck.
+	 */
 	private EnemyDeck deck;
 	private int health;
-	private static PlayerTwo instance = null;
-	
-	
 	
 	/**
-	 * Constructs a new PlayerTwo instance
+	 * The current instance of the player.
+	 */
+	private static PlayerTwo instance = null;
+	
+	/**
+	 * Constructs a new PlayerTwo instance.
 	 * 
 	 * @param level The level of the enemy
 	 */
 	public PlayerTwo(int level) {
-		//hand = initHand();
 		health = 100;
 		deck = new EnemyDeck(level);
 	}
 	
 	/**
-	 * Refreshes the deck of the player with a new level
+	 * Refreshes the deck of the player with a new level.
 	 * 
-	 * @param lvl The new level
+	 * @param level The new level
 	 */
-	public void refreshEnemy(int lvl) { //for if you want to change difficulty
+	public void refreshEnemy(int level) {
 		health = 100;
+		// Clear the current cards and adds the cards of the corresponding level.
 		deck.getCards().clear();
-		deck = new EnemyDeck(lvl);
+		deck = new EnemyDeck(level);
 	}
 	
-	
 	/**
-	 * Gets the current instance of the player
+	 * Gets the current instance of the player.
 	 * 
 	 * @return the instance of the player
 	 */
@@ -61,14 +72,12 @@ public class PlayerTwo extends Player{
 		Card playedCard = card;
 		removeCard(card);
 		return playedCard;
-		
 	}
 
 	@Override
 	public void removeCard(Card card) {
 		// TODO Auto-generated method stub
 		hand.remove(card);
-		
 	}
 
 	@Override
@@ -85,19 +94,21 @@ public class PlayerTwo extends Player{
 		return true;
 	}
 
+	/**
+	 * Gets the player's current health.
+	 * @return The current health of the player
+	 */
 	public int getHealth() {
 		return health;
 	}
 
 	@Override
 	public void damagePlayer(int num) {
-		// TODO Auto-generated method stub
 		health = health - num;
-		
 	}
 	
 	/**
-	 * Sets the hand of the player
+	 * Sets the hand of the player.
 	 * 
 	 * @param cards The cards to set as the hand
 	 */
@@ -106,7 +117,7 @@ public class PlayerTwo extends Player{
 	}
 	
 	/**
-	 * Gets the hand of the player
+	 * Gets the hand of the player.
 	 * 
 	 * @return The hand of the player
 	 */
@@ -115,7 +126,7 @@ public class PlayerTwo extends Player{
 	}
 	
 	/**
-	 * Gets the deck of the player
+	 * Gets the deck of the player.
 	 * 
 	 * @return The deck of the player
 	 */

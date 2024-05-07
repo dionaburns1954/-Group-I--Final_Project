@@ -3,7 +3,9 @@ package edu.mu.main;
 import edu.mu.gamemanager.GameManager;
 
 /**
- * The main class to run the game
+ * The main class to run the game.
+ * 
+ * @version 1.0
  * 
  * @author Ryan Esparza
  * @author Logan Bird
@@ -13,7 +15,7 @@ import edu.mu.gamemanager.GameManager;
 public class Main {
 
 	/**
-	 * The entry point of the program
+	 * The entry point of the program.
 	 * 
 	 * @param args The command-line arguments
 	 */

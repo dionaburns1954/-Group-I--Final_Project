@@ -20,7 +20,7 @@ import edu.mu.item.Item;
 public class PlayerOne extends Player {
 	
 	/**
-	 * The cards that the player has available to play during {@link edu.mu.battle.Battle}
+	 * The cards that the player has available to play during {@link edu.mu.battle.Battle}.
 	 */
 	private ArrayList<Card> hand;
 	
@@ -86,39 +86,38 @@ public class PlayerOne extends Player {
 	}
 	
 	/**
-	 * Adds a battle item to the player's current battle items
+	 * Adds a battle item to the player's current battle items.
 	 * @param item The item to add
 	 */
 	public void addBattleItem(Item item) {
 		battleItems.add(item);
 	}
 
-
-
 	@Override
-	public boolean checkPlayerHealth() { //method for checking if player has died
-		if(health <= 0) return false;
-		
+	public boolean checkPlayerHealth() {
+		if(health <= 0) 
+			return false;
 		return true;
 	}
 	
+	/**
+	 * Get the player's current health.
+	 * @return The player's current health
+	 */
 	public int getHealth() {
 		return health;
 	}
 
-
-
 	@Override
 	public void damagePlayer(int num) {
 		health = health - num;
-		
 	}
 	
 	public void addHealth(int hp) { 
 		health += hp;
 	}
 	/**
-	 * Sets the hand of the player
+	 * Sets the hand of the player.
 	 * 
 	 * @param cards The cards to set as the hand
 	 */
@@ -127,7 +126,7 @@ public class PlayerOne extends Player {
 	}
 	
 	/**
-	 * Gets the hand of the player
+	 * Gets the hand of the player.
 	 * 
 	 * @return The hand of the player
 	 */
@@ -136,14 +135,13 @@ public class PlayerOne extends Player {
 	}
 	
 	/**
-	 * Gets the deck of the player
+	 * Gets the deck of the player.
 	 * 
 	 * @return The deck of the player
 	 */
 	public Deck getDeck() {
 		return deck;
 	}
-	
 	
 	/**
 	 * Gets the player's current battle items.

@@ -45,5 +45,4 @@ public abstract class Player {
 	 * @param num The amount of damage to inflict
 	 */
 	public abstract void damagePlayer(int num);
-	
 }
