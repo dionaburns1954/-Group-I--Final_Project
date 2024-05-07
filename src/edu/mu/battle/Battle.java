@@ -99,7 +99,7 @@ public class Battle {
 	 */
 	private void drawCards(int numcards) {
 		player.setHand(player.getDeck().pullCardsFromDeck(numcards));
-		enemy.setHand(player.getDeck().pullCardsFromDeck(numcards));
+		enemy.setHand(enemy.getDeck().pullCardsFromDeck(numcards));
 	}
 	
 	/**
