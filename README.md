@@ -32,28 +32,36 @@ after a battle the user gets currency, with this currency the user can purchase 
 public class Battle {
 	
 - public Battle(PlayerOne Player, PlayerTwo enemy) 
- 		// creates player and enemy 
+
+ 	// creates player and enemy 
 	
 - public boolean startBattle() {
-		// starts the battle, first call shuffle cards, then call draw cards, then create a loop and call playRound, the while loop will continuelly play rounds until either the user or the enemy loses all of their health
+
+  	// starts the battle, first call shuffle cards, then call draw cards, then create a loop and call playRound, the while loop will continuelly play rounds until either the user or the enemy loses all of their health
 	
 - private void shuffleDecks() {
-		// shuffles the decks
+
+  	// shuffles the decks
 
 - private void drawCards(int numcards) {
-		// draws cards for both enemy and user
+
+  	// draws cards for both enemy and user
   
 - private void openBattleItemMenu() { 
-		// this opens a menu that shows the user the battle items they have purchase and lets the user use a battle item if they want to or ecit the menu
+
+  	// this opens a menu that shows the user the battle items they have purchase and lets the user use a battle item if they want to or ecit the menu
 			
 - private void displayPlayerHand() {
-		// this shows what cards the user drew
+
+  	// this shows what cards the user drew
 	
 - private void playRound() {	
- 		// this starts off by showing the users hand, then it will openItemBattleMenu, after that it will create  a loop and tekk the user to choose a card, it then take the card the user chose, and then pick a card from the enemies hand randomly and show the value of both of the cards and run compareCards method.
+
+  	// this starts off by showing the users hand, then it will openItemBattleMenu, after that it will create  a loop and tekk the user to choose a card, it then take the card the user chose, and then pick a card from the enemies hand randomly and show the value of both of the cards and run compareCards method.
    
 - private void compareCards(Card playerCard, Card enemyCard) 
- 		// this method compares the values of the two cards if the player card is higher then the enemy will lose health else it is flipped and the user will lose health 
+
+  	// this method compares the values of the two cards if the player card is higher then the enemy will lose health else it is flipped and the user will lose health 
 		
 ## CARD class
 Global Varialables
