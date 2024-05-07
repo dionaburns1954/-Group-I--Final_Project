@@ -95,7 +95,28 @@ THERE ARE A LOT OF DIFFERENT ITEMS SO GO THROUGH AND LIST EM ALL
 * SwapCardItem()
 
 ## PLAYERS 
-// add player 1 and 2 here 
+PlayerOne
+* Global Variables
+  - private ArrayList<Card> hand;
+  - private UserDeck deck;
+  - private int health;
+  - private static PlayerOne instance
+  - private ArrayList<Item> battleItems;
+* Methods
+  - public static getPlayer() : returns instance if its not null, otherwise creates a new instance and returns it
+  - public Card playCard(Card card) : plays a specified card
+  - public void removeCard(Card card) : removes a specified card
+  - public void addCardToHand(ArrayList<Card> card) : adds a list of cards to the player's hand
+  - public void addBattleItem(Item item) : Adds and item to the player's battleItems list
+  - public ArrayList<Card> initHand() : returns null
+  - public boolean checkPlayerHealth() : Checks whether the player's health is less than or equal to zero. Returns false if it is, otherwise returns true.
+  - public int getHealth() : returns the player's health
+  - public void damagePlayer(int num) : damages player for a certain amount
+  - public void addHealth(int hp) : adds a certain amount of HP to the user's health
+  - public setHand(ArrayList<Card> cards) : sets hand to a certain list of cards
+  - public ArrayList<Card> getHand() : returns the user's current hand
+  - public Deck getDeck() : returns the user's deck
+  - public ArrayList<Item> getBattleItems() : return's the user's current battleItems list
 
 ## SHOP
  
