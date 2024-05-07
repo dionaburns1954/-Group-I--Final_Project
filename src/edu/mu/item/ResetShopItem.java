@@ -3,7 +3,7 @@ package edu.mu.item;
 import edu.mu.shop.Shop;
 
 /**
- * Represents an item that resets the shop to refresh its inventory
+ * Represents an item that resets the shop to refresh its inventory.
  * 
  * @author Ryan Esparza
  * @version 1.0
@@ -11,10 +11,13 @@ import edu.mu.shop.Shop;
  */
 public class ResetShopItem extends Item {
 	
-	private Shop shopInstance; // Instance of the shop to reset
+	/**
+	 * The current {@link edu.mu.shop.Shop} instance.
+	 */
+	private Shop shopInstance; 
 	
 	/**
-	 * Constructs a ResetShopItem with the specified name, price, and shop instance
+	 * Constructs a ResetShopItem with the specified name, price, and shop instance.
 	 * 
 	 * @param name The name of the reset shop item
 	 * @param price The price of the reset shop item
@@ -26,7 +29,7 @@ public class ResetShopItem extends Item {
 	}
 	
 	/**
-	 * Applied the effect of resetting the shop, which refreshes its inventory
+	 * Applied the effect of resetting the shop, which refreshes its inventory.
 	 */
 	@Override
 	public void applyEffect() {

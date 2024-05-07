@@ -59,9 +59,9 @@ public class ItemFactory {
 	 * @return A random single card item
 	 */
 	private Item getRandomSingleCard() { 
-		
-		int value = getSingleCardValue(); // generate random value between 1 and 10 
-		return new SingleCard("Card " + value, value/2, new int[] {value}) ;
+		// Generate a random value between 1 and 10
+		int value = getSingleCardValue(); 
+		return new SingleCard("Card " + value, value / 2, new int[] {value}) ;
 	}
 	
 	/**

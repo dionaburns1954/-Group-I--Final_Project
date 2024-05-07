@@ -6,7 +6,7 @@ import edu.mu.card.Card;
 import edu.mu.gamemanager.GameManager;
 
 /**
- * Represents an item that adds a single card to the player's deck when applied
+ * Represents an item that adds a single card to the player's deck when applied.
  * 
  * @author Ryan Esparza
  * @version 1.0
@@ -17,7 +17,7 @@ public class SingleCard extends Item {
     private int currentValue;
 
     /**
-     * Constructs a SingleCard with the specified name, price, and possible card values
+     * Constructs a SingleCard with the specified name, price, and possible card values.
      * 
      * @param name The name of the single card item
      * @param price The price of the single card item
@@ -29,12 +29,12 @@ public class SingleCard extends Item {
     }
 
     /**
-     * Applies the effect of adding a single card to the player's deck
-     * If the card's value is not assigned, it randomly selects a value from the possible values
+     * Applies the effect of adding a single card to the player's deck.
+     * If the card's value is not assigned, it randomly selects a value from the possible values.
      */
     @Override
     public void applyEffect() {
-    	if (currentValue == 0) { // Check if card value is not assigned
+    	if (currentValue == 0) { // Check if the card value is not assigned
             currentValue = getRandomValueFromPossibleValues();
         }
     	// Add the card to the player's deck
@@ -42,7 +42,7 @@ public class SingleCard extends Item {
     }
     
     /**
-     * Generates a random value for the card from the possible values
+     * Generates a random value for the card from the possible values.
      * 
      * @return A random value for the card
      */
@@ -53,7 +53,7 @@ public class SingleCard extends Item {
     }
 
     /**
-     * Gets the current value of the card
+     * Gets the current value of the card.
      * 
      * @return The current value of the card
      */
@@ -61,12 +61,20 @@ public class SingleCard extends Item {
         return currentValue;
     }
 
-    // Getter for card name
+    /**
+     * Gets the name of the card.
+     * 
+     * @return The name of the card.
+     */
     public String getName() {
         return super.getName();
     }
 
-    // Getter for card value
+    /**
+     * Gets the value of the card.'
+     * 
+     * @return the value of the card.
+     */
     public int getValue() {
         return currentValue;
     }
@@ -79,7 +87,7 @@ public class SingleCard extends Item {
     }
 
     /**
-     * Sets the current value of the card
+     * Sets the current value of the card.
      * 
      * @param value The value to set
      */
@@ -88,7 +96,7 @@ public class SingleCard extends Item {
     }
 
     /**
-     * Creates a duplicate of the SingleCard with the same attributes
+     * Creates a duplicate of the SingleCard with the same attributes.
      * 
      * @return A duplicate SingleCard instance
      */
