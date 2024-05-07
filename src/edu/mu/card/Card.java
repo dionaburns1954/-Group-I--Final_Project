@@ -6,14 +6,14 @@ package edu.mu.card;
  * @author Logan Bird
  * @author Dion Burns
  */
-public class Card { //might turn into an abstract class or interface later
+public class Card { 
 	
 	private int value;
 	
 	/**
-	 * Constructs a new Card instance with a default value of 1
+	 * Default constructor. Constructs a new Card instance with a default value of 1
 	 */
-	public Card() { //default constructor
+	public Card() {
 		this.value = 1;
 	}
 	
@@ -22,7 +22,7 @@ public class Card { //might turn into an abstract class or interface later
 	 * 
 	 * @param value The value of the card
 	 */
-	public Card(int value) { //parametized constructor
+	public Card(int value) {
 		this.value = value;
 	}
 	
@@ -43,7 +43,4 @@ public class Card { //might turn into an abstract class or interface later
 	public int getValue() {
 		return value;
 	}
-	
-	
-	
 }
