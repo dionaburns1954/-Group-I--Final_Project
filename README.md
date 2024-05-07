@@ -70,8 +70,8 @@ public class Battle {
   - private void Deck_5() : initializes deck of level 5
   - private void Deck_above5(int level) : Initializes a deck with level higher than 5
   - private boolean createDeck(int min, int max) : Adds cards with values ranging between a min and max to deck
-* userDeck ( enter user Deck)
-  // enter deck class methods
+* UserDeck
+  - resetDeck() : initializes a new deck and sets as the user's current deck
 
 ## ITEM 
 THERE ARE A LOT OF DIFFERENT ITEMS SO GO THROUGH AND LIST EM ALL 
