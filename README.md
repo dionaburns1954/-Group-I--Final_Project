@@ -86,7 +86,19 @@ public class Battle {
 ## ITEM 
 THERE ARE A LOT OF DIFFERENT ITEMS SO GO THROUGH AND LIST EM ALL 
 * DeLeteCardItem( )
+  - public void applyEffect()
+
+	// this has the user pick a card out of their deck that they want to delete.
+
 * HealthItem()
+  - public void applyEffect()
+  
+  	// this is a battle item that when used heals the user
+
+  - private static int calculateCost(int healthToHeal)
+
+	// this calculates the price of the healthitem based on how much it heals
+
 * ItemFactory()
 * ItemType()
 * PeekCardItem()
