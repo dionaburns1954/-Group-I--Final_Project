@@ -100,6 +100,26 @@ THERE ARE A LOT OF DIFFERENT ITEMS SO GO THROUGH AND LIST EM ALL
 	// this calculates the price of the healthitem based on how much it heals
 
 * ItemFactory()
+   - public Item getItem(ItemType itemType)
+
+	// this gets the Item if delete then it will create a delete, if single card then it will return a single card if reset shop item then it will return that
+
+  - public Item getBattleItem(ItemType itemType)
+
+	// this item will retrieve the different Battle items, if the item is Heal then it will create a heal item, if it is a peekcard then it will return peekcard, if it is swap card then it will return a swapcard item
+
+  - private Item getRandomSingleCard()
+
+	// this method sets a given value to a new single card
+
+  - private int getRandomHPValue()
+
+	// this retrieves a random HP value to assign to new Hp item
+
+  - private int getSingleCardValue()
+
+	// this gets a random SingleCard Value to assign to a new Single Card
+		
 * ItemType()
 * PeekCardItem()
 * ResetShopItem()
