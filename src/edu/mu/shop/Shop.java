@@ -151,7 +151,7 @@ public class Shop {
 		boolean exitShop = false;
 		
 		// Print the shop loop until the player is done purchasing items.
-		while (exitShop) {
+		while (!exitShop) {
 			System.out.println("Welcome to the Shop!");
 			selectDisplayedItems(); // Select items to be displayed in the shop.
 			System.out.println(" Your Currency: $" + currency);
