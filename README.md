@@ -79,7 +79,7 @@ Methods
 
 ## ITEM 
 THERE ARE A LOT OF DIFFERENT ITEMS SO GO THROUGH AND LIST EM ALL 
-* DELeteCardItem( )
+* DeLeteCardItem( )
 * HealthItem()
 * ItemFactory()
 * ItemType()
