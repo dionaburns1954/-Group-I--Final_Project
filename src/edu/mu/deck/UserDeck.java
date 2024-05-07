@@ -3,7 +3,11 @@ package edu.mu.deck;
 import edu.mu.card.*;
 
 /**
- * Represents the user's deck in the game, containing of cards available to the player
+ * Represents the user's deck in the game, containing of cards available to the player.
+ * 
+ * @version 1.0
+ * 
+ * @see Deck
  * 
  * @author Logan Bird
  * @author Dion Burns
