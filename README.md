@@ -122,7 +122,15 @@ THERE ARE A LOT OF DIFFERENT ITEMS SO GO THROUGH AND LIST EM ALL
 		
 * ItemType()
 * PeekCardItem()
+- public void applyEffect()
+
+	// this Item shows what the enemy Card is
+
 * ResetShopItem()
+-  public void applyEffect()
+
+	// this Item resets the displayed items in the shop
+
 * SingleCard()
 - public void applyEffect()
 
