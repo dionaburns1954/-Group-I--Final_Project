@@ -8,6 +8,12 @@ import edu.mu.card.Card;
 /**
  * Represents a deck of cards in the game.
  * 
+ * @version 1.0
+ * 
+ * @see EnemyDeck
+ * @see UserDeck
+ * @see edu.mu.card.Card
+ * 
  * @author Ryan Esparza
  * @author Logan Bird
  * @author Dion Burns

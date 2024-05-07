@@ -3,6 +3,8 @@ package edu.mu.card;
 /**
  * Represents a playing card in the game
  * 
+ * @version 1.0
+ * 
  * @author Logan Bird
  * @author Dion Burns
  */

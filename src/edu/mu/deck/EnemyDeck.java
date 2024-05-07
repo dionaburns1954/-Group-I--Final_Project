@@ -8,12 +8,16 @@ import edu.mu.card.Card;
 /**
  * Represents an enemy deck in the game, containing cards used by opponent.
  * 
+ * @version 1.0
+ * 
+ * @see Deck
+ * 
  * @author Logan Bird
  * @author Dion Burns
  */
 public class EnemyDeck extends Deck {
 	/**
-	 * Constructs an EnemyDeck object with the specified level.
+	 * Constructs an EnemyDeck object with the specified level. 
 	 * 
 	 * @param level The level of the enemy deck
 	 */
@@ -31,68 +35,75 @@ public class EnemyDeck extends Deck {
 		if ( level == 1) {
 			deckLevel1();
 			
-		}else if (level == 2) {
+		} else if (level == 2) {
 			deckLevel2();
 			
 		} else if (level == 3) {
 			deckLevel3();
 			
-		}else if (level == 4) {
+		} else if (level == 4) {
 			deckLevel4();
 			
-		}else if (level == 5) {
+		} else if (level == 5) {
 			deckLevel5();
 			
-		}else {
+		} else {
 			deckLevel5Plus(level);
-			
 		}
 	}
 	
 	/**
-	 * Adds cards to the deck for level 1
+	 * Adds cards to the deck for level 1.
 	 */
 	private void deckLevel1() {
 		createDeck(0, 20);
 	}
+	
 	/**
-	 * Adds cards to the deck for level 2
+	 * Adds cards to the deck for level 2.
 	 */
 	private void deckLevel2() {
 		createDeck(20, 40);
 	}
+	
 	/**
-	 * Adds cards to the deck for level 3
+	 * Adds cards to the deck for level 3.
 	 */
 	private void deckLevel3() {
 		createDeck(40, 60);
 	}
+	
 	/**
-	 * Adds cards to the deck for level 4
+	 * Adds cards to the deck for level 4.
 	 */
 	private void deckLevel4() {
 		createDeck(60, 80);
 	}
+	
 	/**
-	 * Adds cards to the deck for level 5
+	 * Adds cards to the deck for level 5.
 	 */
 	private void deckLevel5() {
 		createDeck(60, 80);
 	}
+	
 	/**
-	 * Adds cards to the deck for levels above 5
+	 * Adds cards to the deck for levels above 5. Takes {@link #deckLevel5()} and
+	 * adds the player's current level to it.
 	 * 
-	 * @param level The level of the enemy decks
+	 * @param level The level of the player
 	 */
 	private void deckLevel5Plus(int level) {
 		deckLevel5();
+		
 		for(Card card : deck) {
-			card.setValue(card.getValue()+level );
+			// Take the Level 5 deck, and add the player's current level to the value of the cards
+			card.setValue(card.getValue() + level);
 		}
 	}
 	
 	/**
-	 * Creates a deck of cards with values between the specified range
+	 * Creates a deck of cards with values between the specified range.
 	 * 
 	 * @param min The minimum value of the cards
 	 * @param max The maximum value of the cards
@@ -101,16 +112,21 @@ public class EnemyDeck extends Deck {
 	private boolean createDeck(int min, int max) {
 		ArrayList<Card> deck = new ArrayList<Card>();
 		Random rand = new Random();
-		for(int i = 0; i < deckSize; i++) { //creates a temp deck
+		
+		// Create a deck with values between the max and min
+		for(int i = 0; i < deckSize; i++) { 
 			deck.add(new Card(rand.nextInt(max - min) + min));
 		}
 		
-		if(deck.size() <= 0) return false;
+		if(deck.size() <= 0) 
+			return false;
 		
-		for(int i = 0; i < deck.size(); i++) { //copies cards from temp deck to real deck
-			(this.deck).add(deck.get(i));
+		for(int i = 0; i < deck.size(); i++) { 
+			// Add the cards to the specified deck
+			this.deck.add(deck.get(i));
 		}
-		if((this.deck).size() <= 0) return false;
+		if(this.deck.size() <= 0) 
+			return false;
 		
 		return true;
 	}

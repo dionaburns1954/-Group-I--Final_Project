@@ -15,6 +15,9 @@ import edu.mu.item.Item;
  */
 public class PlayerOne extends Player { //This is the character that you will play as
 	
+	/**
+	 * The cards that the player has available to play during {@link edu.mu.battle.Battle}
+	 */
 	private ArrayList<Card> hand;
 	private UserDeck deck;
 	private int health;
